@@ -1,0 +1,68 @@
+{{- define "title" -}}
+{{- T "title.archive" -}}
+{{- end -}}
+
+{{- define "header" -}}
+<h1 itemprop="name headline">
+	{{- T "title.archive" -}}
+</h1>
+{{- end -}}
+
+{{- define "main" -}}
+{{ $local := newScratch }}
+{{- $totalPost := len (where site.RegularPages "Type" "in" "posts")  -}}
+{{- $totalPostStr := $totalPost | string }}
+{{- $totalPostHTML := printf `<span class="text-theme font-bold">%s</span>` $totalPost -}}
+{{ if (gt $totalPost 210) }}
+{{ $local.Set "cheers" "excellect"}}
+{{ else if (gt $totalPost 130) }}
+{{ $local.Set "cheers" "great"}}
+{{ else if (gt $totalPost 80) }}
+{{ $local.Set "cheers" "good"}}
+{{ else if (gt $totalPost 50) }}
+{{ $local.Set "cheers" "nice"}}
+{{ else if (gt $totalPost 30) }}
+{{ $local.Set "cheers" "ok"}}
+{{ else }}
+{{ $local.Set "cheers" "um"}}
+{{end}}
+<div class="collapse wrap">
+	<h2 class="item header">
+		{{- T "counter.archive_posts" (dict "d" $totalPost) -}}
+		<small class="cheers">
+			{{- T (slice "cheers." ($local.Get "cheers")) -}}
+			{{- T "keep_on" -}}
+		</small>
+	</h2>
+	{{- range (where site.RegularPages "Type" "in" "posts").GroupByDate "2006" -}}
+		<h3 class="item section">{{- .Key -}}</h3>
+					{{- range .Pages -}}
+					<article class="item normal" itemscope itemtype="http://schema.org/Article">
+						<div class="meta">
+							<time timeprop="dateCreated"
+							{{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+							content="{{- .Date.Format (T "date.normal") -}}"
+							>
+							{{- .Date.Format (T "date.d_m") -}}
+						</time>
+						</div>
+						<div class="title">
+							<a href="{{- .Permalink -}}" itemprop="url">
+								<span itemprop="name">
+									{{- if .Title -}}
+									{{- .Title -}}
+							{{- else -}}
+									{{- T "post.untitled" -}}
+							{{- end -}}
+									</span>
+							</a>
+						</div>
+					</article>
+					{{- end -}}
+{{- end -}}
+</div>
+{{- end -}}
+
+{{- define "sidebar" -}}
+{{- partial "components/sidebar.html" (dict "context" . "display_toc" false "paginator" nil) -}}
+{{- end -}}

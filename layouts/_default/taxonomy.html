@@ -1,0 +1,69 @@
+{{- define "title" -}}
+{{- if eq .Data.Plural "tags" -}}
+{{- T "title.all" -}}
+{{- T "title.tag" -}}
+{{ else }}
+{{- T "title.all" -}}
+{{- T "title.category" -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "header" -}}
+<h1 itemprop="name headline">
+{{- if eq .Data.Plural "tags" -}}
+{{- T "title.all" -}}
+{{- T "title.tag" -}}
+{{ else }}
+{{- T "title.all" -}}
+{{- T "title.category" -}}
+{{- end -}}
+  </h1>
+{{- end -}}
+
+{{- define "main" -}}
+<div class="collapse wrap">
+            {{- $coundHTML := printf `<b class="text-theme mx-1">%s</b>` (len .Pages | string) -}}
+            {{- $titleHTML := printf `<b class="text-theme mx-1">%s</b>` .Title -}}
+            {{- if eq .Data.Plural "tags" -}}
+            <h2 class="item header">
+                <a href="/tags/">{{- T "title.all" -}}</a>
+                <small>/</small>
+                {{ .Title }}
+                <small>{{- T "title.tag" -}}</small>
+            </h2>
+            {{- else -}}
+            {{- end -}}
+        <div>
+            {{- $paginator := .Paginate (where .Pages "Type" "in" "posts") -}}
+            {{- range $paginator.Pages -}}
+            <article class="item normal" itemscope itemtype="http://schema.org/Article">
+                <div class="meta">
+                    <time timeprop="dateCreated"
+                    {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                    content="{{- .Date.Format (T "date.normal") -}}"
+                    >
+                    {{- .Date.Format (T "date.d_m_y") -}}
+                </time>
+                </div>
+                <div class="title">
+                    <a href="{{- .Permalink -}}" itemprop="url">
+                        <span itemprop="name">
+                            {{- if .Title -}}
+                            {{- .Title -}}
+                    {{- else -}}
+                            {{- T "post.untitled" -}}
+                    {{- end -}}
+                            </span>
+                    </a>
+                </div>
+            </article>
+            {{- end -}}
+        </div>
+
+    {{- partial "components/pagination.html" $paginator -}}
+</div>
+{{- end -}}
+
+{{- define "sidebar" -}}
+{{- partial "components/sidebar.html" (dict "context" . "display_toc" true "paginator" nil) -}}
+{{- end -}}

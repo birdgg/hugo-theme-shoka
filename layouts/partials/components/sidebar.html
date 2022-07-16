@@ -1,0 +1,62 @@
+{{ $local := newScratch}}
+{{ $context := .context}}
+{{ $display_toc := .display_toc }}
+{{ $paginator := .paginator}}
+{{ $has_related := isset $context.Params "series"}}
+
+{{if $has_related}}
+{{ $local.Set "series_post" (where $context.Site.RegularPages.ByDate ".Params.series" "intersect" $context.Params.series) }}
+{{end}}
+
+
+<div class="inner">
+	<div class="panels">
+		<div class="inner">
+			<div class="contents panel pjax" data-title='{{T "sidebar.toc"}}'>
+				{{- if $display_toc -}}
+				{{- partial "post/toc.html" $context -}}
+				{{- end -}}
+			</div>
+			<div class="related panel pjax" data-title='{{T "sidebar.related" }}'>
+				{{- if $has_related -}}
+				<ul>
+				{{- range $elem_index, $elem_val := ($local.Get "series_post") -}}
+				  {{printf "#%v" $elem_index}}
+					{{- if eq .File.UniqueID $.context.File.UniqueID -}}
+					<li class="{{if eq .File.UniqueID $.context.File.UniqueID }}active{{end}}">
+						{{- .Title -}}
+					</li>
+					{{- else -}}
+					<li class="{{if eq .File.UniqueID $.context.File.UniqueID }}active{{end}}">
+						<a href="{{- .Permalink -}}" rel="bookmark" title="{{- .Title -}}">{{- .Title -}}</a>
+					</li>
+					{{- end -}}
+				{{- end -}}
+				</ul>
+				{{- end -}}
+			</div>
+			<div class="overview panel" data-title='{{T "sidebar.overview"}}'>
+				{{- partial "components/overview.html" .context -}}
+			</div>
+		</div>
+	</div>
+	<ul id="quick">
+		<li class="prev pjax">
+			{{- if $paginator.HasPrev -}}
+			<a rel="prev" title='{{T "post.prev"}}' href="{{$paginator.Prev.URL}}">
+				<i class="ic i-chevron-left"></i>
+			</a>
+			{{- end -}}
+		</li>
+		<li class="up"><i class="ic i-arrow-up"></i></li>
+		<li class="down"><i class="ic i-arrow-down"></i></li>
+		<li class="next pjax">
+			{{if $paginator.HasNext}}
+			<a rel="next" title='{{- T "post.next" }}' href="{{- $paginator.Next.URL -}}">
+				<i class="ic i-chevron-right"></i>
+			</a>
+			{{end}}
+		</li>
+		<li class="percent"></li>
+	</ul>
+</div>

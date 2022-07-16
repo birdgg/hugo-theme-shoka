@@ -1,0 +1,38 @@
+<article itemscope itemtype="http://schema.org/Article" class="post block" lang="{{- .Language -}}">
+	<link itemprop="mainEntityOfPage" href="{{ .Permalink	}}">
+
+	<span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+		<meta itemprop="image" content="">
+		<meta itemprop="name" content="{{ .Site.Params.author }}">
+		{{/*
+		<meta itemprop="description" content="{{ subtitle }}, {{ description }}"> */}}
+	</span>
+
+	<span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="{{ .Title }}">
+	</span>
+
+	<div class="body md" itemprop="articleBody">
+		{{ .Content }}
+
+		{{- if .Params.tags -}}
+		<div class="tags">
+			{{- range .Params.tags -}}
+			<a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" rel="tag"><i class="ic i-tag"></i> {{- . -}}</a>
+			{{- end -}}
+		</div>
+		{{- end -}}
+	</div>
+
+	<footer>
+
+		{{- partial "post/footer.html" . -}}
+		{{/*  {{- if .Site.Params.reward.enable -}}
+			{{- partial "post/reward.html" . -}}
+		{{- end -}}  */}}
+
+		{{- if .Site.Params.license.enable -}}
+			{{- partial "post/copyright.html" . -}}
+		{{- end -}}
+	</footer>
+</article>

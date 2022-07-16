@@ -1,0 +1,12 @@
+{{ $image := default "/images/404.png" (.Get "image") }}
+{{ $color := default nil (.Get "color") }}
+<div class="item" title="{{- .Get "name" -}}"
+    {{- if $color -}}style="--block-color:{{- $color -}}"{{- end -}}>
+    <a href="{{- .Get "link" -}}" class="image" data-background-image="{{- $image -}}"></a>
+    <div class="info">
+        <a href="{{- .Get "link" -}}" class="title">
+            {{- .Get "name" -}}
+    </a>
+        <p class="desc">{{- .Get "desc" -}}</p>
+    </div>
+</div>

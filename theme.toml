@@ -1,0 +1,30 @@
+name = "Shoka"
+license = "MIT"
+licenselink = "https://github.com/birdgg/hugo-theme-shoka/blob/main/LICENSE"
+description = "Ported from hexo theme shoka"
+homepage = "https://github.com/birdgg/hugo-theme-shoka"
+tags = [
+  "blog",
+  "responsive",
+  "minimal",
+  "personal",
+  "light",
+  "dark",
+  "archive",
+]
+features = [
+  "blog",
+  "responsive",
+  "personal",
+  "light",
+  "dark",
+]
+min_version = "0.97.0"
+
+[author]
+  name = "Birdgg"
+
+[original]
+  name = "hexo-theme-shoka"
+  homepage = "https://shoka.lostyu.me/"
+  repo = "https://github.com/amehime/hexo-theme-shoka"

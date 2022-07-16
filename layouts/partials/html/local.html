@@ -1,0 +1,32 @@
+{{- $l_text := print "<i class='ic i-creative-commons'></i>"  .Site.Params.license.name -}}
+<script data-config type="text/javascript">
+ var LOCAL = {
+	 path: {{- .RelPermalink	-}},
+	 favicon: {
+		 show: "{{- T "favicon.show" -}}",
+		 hide: "{{- T "favicon.hide" -}}" 
+	 },
+	 search: {
+		 placeholder: "{{- T "search.placeholder" -}}",
+		 empty: "{{- T "search.empty" -}}",
+		 stats: "{{- T "search.stats" -}}"
+	 },
+	 ignores: [
+		 function (e) { return e.includes("#") },
+		 function (e) { return new RegExp(LOCAL.path + "$").test(e) }
+	 ],
+	 {{- if .Site.Params.chart -}}
+	 chart: true,
+	 {{- end -}}
+	 {{- if .Site.Params.math -}}
+	 copy_tex: true,
+	 katex: true,
+	 {{- end -}}
+	 {{- if .Site.Params.mermaid -}}
+	 mermaid: true,
+	 {{- end -}}
+	 audio: {},
+	 fancybox: true,
+	 copyright: {{- T "tips.copyright" (dict "s" $l_text) -}},
+ }
+</script>

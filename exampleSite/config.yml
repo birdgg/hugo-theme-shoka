@@ -1,0 +1,54 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+defaultContentLanguage: zh-cn
+title: "Birdgg's blog"
+theme: "hugo-theme-shoka"
+
+paginate: 8
+taxonomies:
+  tag: tags
+  series: series
+
+
+permalinks:
+  posts: /:slug
+
+pygmentsUseClasses: true
+markup:
+  highlight:
+    style: ''
+    guessSyntax: true
+    lineNumbersInTable: true
+    lineNos: true
+    codeFences: true
+  goldmark:
+    renderer:
+      unsafe: true # enable html in markdown
+
+menu:
+  main:
+  - identifier: home
+    name: Home
+    params: 
+      icon: ic i-home
+    weight: 10
+    url: /
+  - identifier: links
+    name: Links
+    params: 
+      icon: ic i-magic
+    weight: 30
+    url: /links/
+  - identifier: about
+    name: About
+    params: 
+      icon: ic i-user
+    weight: 20
+    url: /about/
+    parent: links
+  - identifier: archives
+    name: Archives
+    params: 
+      icon: ic i-feather
+    weight: 40
+    url: /archives/

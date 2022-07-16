@@ -1,0 +1,23 @@
+hover-underline::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0.1875rem;
+  bottom: 0;
+  border-radius: 0.125rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: currentColor; }
+
+color-btn {
+  color: var(--grey-0);
+  background-image: linear-gradient(to right, var(--color-pink) 0, var(--color-orange) 100%);
+  box-shadow: 0 0 0.75rem var(--color-pink-a3); }
+
+fix-fullscreen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999; }

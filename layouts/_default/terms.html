@@ -1,0 +1,42 @@
+{{- define "title" -}}
+{{- if eq .Data.Plural "tags" -}}
+{{- T "title.all" -}}
+{{- T "title.tag" -}}
+{{ else }}
+{{- T "title.all" -}}
+{{- T "title.category" -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "header" -}}
+<h1 itemprop="name headline">
+{{- if eq .Data.Plural "tags" -}}
+{{- T "title.all" -}}
+{{- T "title.tag" -}}
+{{ else }}
+{{- T "title.all" -}}
+{{- T "title.category" -}}
+{{- end -}}
+  </h1>
+{{- end -}}
+
+{{- define "main" -}}
+{{- if eq .Title "Tags" -}}
+{{- $totalTags := len .Site.Taxonomies.tags -}}
+<div class="collapse wrap">
+    <h2 class="item title"><a href="{{- .Site.BaseURL -}}">{{- T "menu.home" -}}</a> <small>/</small>
+   {{- T "counter.tag_cloud" (dict "Count" $totalTags)  -}}
+    </h2>
+    <div class="tag cloud">
+        {{- range sort .Site.Taxonomies.tags "Count" "desc" -}}
+        {{- $fontSize := index (seq 16 22 | shuffle) 0 -}}
+        {{- $r := index (seq 114 255 | shuffle) 0 -}}
+        {{- $g := index (seq 186 206 | shuffle) 0 -}}
+        {{- $b := index (seq 195 207 | shuffle) 0 -}}
+        {{- $color :=  delimit (slice $r $g $b) "," -}}
+        <a href="{{- .Page.RelPermalink -}}" style="font-size:{{- $fontSize -}}px;color:rgb({{- $color -}})">{{- .Page.Title -}}</a>
+        {{- end -}}
+    </div>
+</div>
+{{- end -}}
+{{- end -}}

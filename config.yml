@@ -1,0 +1,63 @@
+params:
+  alternate: 'Birdgg'
+  subtitle: "subtitle"
+  author: Birdgg
+  description: this is description
+  avatar: avatar.jpg
+  since: 2005
+
+  social:
+    github:
+      icon: ic i-github
+      link: https://github.com
+    twitter:
+      icon: ic i-twitter
+      link: https://twitter.com
+
+
+  favicon:
+    apple_touch_icon: /apple-touch-icon.png
+
+  darkmode: true
+  auto_scroll: true
+
+  reward:
+    enable: true
+    account:
+      wechatpay: /wechatpay.png
+      alipay: /alipay.png
+      paypal: /paypal.png
+  
+  license:
+    enable: true
+    name: BY-NC-SA
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
+
+  prism: true
+  prismStyle: tomorrow-night
+  prismLanguages: ["javascript", "typescript", "kotlin", "swift"]
+
+  chart: false
+  math: false
+  mermaid: false
+
+  loader:
+    start: true
+    switch: false
+
+  vendors:
+    cdn: 'cdn.jsdelivr.net'
+    css:
+      katex: npm/katex@0.12.0/dist/katex.min.css
+      fancybox: combine/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css
+    js:
+      pace: npm/pace-js@1.0.2/pace.min.js
+      pjax: npm/pjax@0.2.8/pjax.min.js
+      fetch: npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js
+      anime: npm/animejs@3.2.0/lib/anime.min.js
+      algolia: npm/algoliasearch@4/dist/algoliasearch-lite.umd.js
+      instantsearch: npm/instantsearch.js@4/dist/instantsearch.production.min.js
+      lazyload: npm/lozad@1/dist/lozad.min.js
+      quicklink: npm/quicklink@2/dist/quicklink.umd.js
+      # fancybox: combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGal
+      # chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js

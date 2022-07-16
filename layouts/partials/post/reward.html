@@ -1,0 +1,11 @@
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> {{- T "reward.donate" -}}</button>
+  <p>{{- T "reward.text" -}}</p>
+  <div id="qr">
+		{{ range $elem_val := .Site.Params.reward.account }}
+        <img data-src="/images{{$elem_val}}" alt="">
+        <p>123</p>
+      </div>
+			{{end}}
+  </div>
+</div>

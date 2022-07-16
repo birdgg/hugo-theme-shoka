@@ -1,0 +1,48 @@
+{{ $author := .Site.Params.author}}
+{{ $post_len := len .Site.RegularPages }}
+{{ $cat_len := 0 }}
+{{ $tag_len := len .Site.Taxonomies.tags }}
+{{ $social := .Site.Params.social }}
+
+<div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+	<img class="image" itemprop="image" alt="{{ $author }}" data-src="{{ .Site.BaseURL }}images/avatar.jpg">
+	<p class="name" itemprop="name">{{ $author }}</p>
+	<div class="description" itemprop="description">
+		{{- .Site.Params.description -}}
+	</div>
+</div>
+
+<nav class="state">
+	<div class="item posts">
+		<a href="/archives/">
+			<span class="count">{{ $post_len }}</span>
+			<span class="name">{{T "state.posts"}}</span>
+		</a>
+	</div>
+
+	<div class="item categories">
+		<a href="/categories/">
+			<span class="count">{{ $cat_len }}</span>
+			<span class="name">{{T "state.categories" }}</span>
+		</a>
+	</div>
+
+	<div class="item tags">
+		<a href="/tags/">
+			<span class="count">{{$tag_len}}</span>
+			<span class="name">{{T "state.tags"}}</span>
+		</a>
+	</div>
+</nav>
+
+<div class="social">
+	{{ range $elem_key, $elem_val := $social}}
+	<a class="item {{$elem_key}}" href="{{$elem_val.link}}">
+		<i class="{{$elem_val.icon}}"></i>
+	</a>
+	{{ end }}
+</div>
+
+<ul class="menu">
+	{{- partial "sidebar/menu.html" . -}}
+</ul>

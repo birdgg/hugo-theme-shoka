@@ -1,0 +1,24 @@
+{{- define "title" -}}
+{{ .Title }}
+{{- end -}}
+
+{{- define "header" -}}
+<h1 itemprop="name headline">
+	{{- .Title -}}
+</h1>
+{{- partial "components/postmeta.html" (dict "context" . "full" true) -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="article wrap">
+  {{- partial "components/breadcrumb.html" (dict "p1" . "p2" . "home" true) -}}
+	{{- partial "post/post.html" . -}}
+</div>
+{{- partial "post/nav.html" . -}}
+{{- end -}}
+
+{{- define "sidebar" -}}
+{{- partial "components/sidebar.html" (dict "context" . "display_toc" true "paginator" nil) -}}
+{{- end -}}
+
+

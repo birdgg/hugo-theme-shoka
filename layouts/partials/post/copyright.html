@@ -1,0 +1,25 @@
+{{- $license_url := .Site.Params.license.url -}}
+{{- $license_name := .Site.Params.license.name | upper -}}
+<div id="copyright">
+	<ul>
+		<li class="author">
+			<strong>
+				{{- print (T "post.copyright.author") (T "symbol.colon") -}}
+			</strong>
+			{{- .Site.Params.author -}}
+		</li>
+		<li class="link">
+			<strong>{{- print (T "post.copyright.link") (T "symbol.colon") -}}</strong>
+			<a href="{{- .Permalink -}}" title="{{- .Title -}}">{{- print .Site.BaseURL .Title -}}</a>
+		</li>
+		<li class="license">
+			<strong>{{- print (T "post.copyright.license_title") (T "symbol.colon") -}}</strong>
+			{{- T "post.copyright.license_content_before" -}}
+			<a href="{{- $license_url -}}" rel="noopener external nofollow noreferrer" target="_blank" class="exturl" title="(CC){{- $license_name -}}">
+				<i class='ic i-creative-commons'><em>(CC)</em></i>
+				{{- $license_name -}}
+				</a>
+				{{- T "post.copyright.license_content_after" -}}
+		</li>
+	</ul>
+	</div>

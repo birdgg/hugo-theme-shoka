@@ -1,0 +1,8 @@
+{{- $noticeType := .Get 0 -}}
+{{- $noIcon := .Get 1 -}}
+
+{{- $raw := (markdownify .Inner | chomp) -}}
+
+<div class="note {{$noticeType}} {{$noIcon}}">
+    <p>{{- $raw -}}</p>
+</div>

@@ -1,0 +1,15 @@
+<div class="meta">
+	{{- if ne (.Lastmod.Format (T "date.d_m_y")) (.Date.Format (T "date.d_m_y")) -}}
+	<span class="item">
+		<span class="icon">
+			<i class="ic i-calendar-check"></i>
+		</span>
+		<span class="text">{{- T "post.edited" -}}</span>
+		<time
+		title="{{- T "post.publishedIn" (.Date.Format (T "date.normal")) -}}"
+		{{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+		>{{- .Date.Format (T "date.d_m_y") -}}</time
+>
+	</span>
+	{{- end -}}
+</div>

@@ -1,0 +1,5 @@
+{{- $color := index .Params 0 -}}
+{{- $content := index .Params 1 | markdownify -}}
+
+<span class="{{- $color -}}">{{- $content -}}</span>
+

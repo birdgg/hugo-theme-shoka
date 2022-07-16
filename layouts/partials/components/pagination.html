@@ -1,0 +1,41 @@
+{{ $paginator := . }}
+<nav class="pagination">
+	<div class="inner">
+		{{ if $paginator.HasPrev }}
+		<a class="extend prev" rel="prev" href="{{- .Prev.URL -}}">
+			<i class="ic i-angle-left" aria-label="上一页"></i>
+		</a>
+		{{ end }}
+
+		{{ if gt $paginator.PageNumber 2 }}
+		<a class="page-number" href="{{ $paginator.First.URL }}">1</a>
+		{{ end }}
+
+		{{ if gt $paginator.PageNumber 3 }}
+		<span class="space">…</span>
+		{{ end}}
+
+		{{ if $paginator.HasPrev }}
+		<a class="page-number" href="{{ $paginator.Prev.URL }}">{{ $paginator.Prev.PageNumber }}</a>
+		{{ end }}
+
+		<span class="page-number current">{{ $paginator.PageNumber }}</span>
+
+		{{ if $paginator.HasNext }}
+		<a class="page-number" href="{{ $paginator.Next.URL }}">{{ $paginator.Next.PageNumber }}</a>
+		{{ end }}
+
+		{{ if lt $paginator.PageNumber (sub $paginator.TotalPages 2) }}
+		<span class="space">…</span>
+		{{ end }}
+
+		{{ if lt $paginator.PageNumber (sub $paginator.TotalPages 1) }}
+		<a class="page-number" href="{{ $paginator.Last.URL }}">{{$paginator.TotalPages}}</a>
+		{{ end }}
+
+		{{ if $paginator.HasNext }}
+		<a class="extend next" rel="next" href="{{- .Next.URL -}}">
+			<i class="ic i-angle-right" aria-label="下一页"></i></a>
+		{{ end }}
+	</div>
+</nav>

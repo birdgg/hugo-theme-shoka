@@ -1,0 +1,30 @@
+<nav id="nav">
+	<div class="inner">
+		<div class="toggle">
+			<div class="lines" aria-label='{{T "accessibility.nav_toggle"}}'>
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</div>
+		</div>
+		<ul class="menu">
+			<li class="item title">
+				<a href="{{ .Site.BaseURL }}" rel="start">
+					{{ if .Site.Params.alternate }}
+					{{- .Site.Params.alternate -}}
+					{{ else }}
+					{{- .Site.Title -}}
+					{{ end }}
+				</a>
+			</li>
+		</ul>
+		<ul class="right">
+			<li class="item theme">
+				<i class="ic i-sun"></i>
+			</li>
+			<li class="item search">
+				<i class="ic i-search"></i>
+			</li>
+		</ul>
+	</div>
+</nav>

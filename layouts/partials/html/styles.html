@@ -1,0 +1,4 @@
+{{ $cdn := .Site.Params.external.cdn}}
+{{ range $elem_val := .Site.Params.external.css }}
+<link rel="stylesheet" href="https://{{ $cdn }}/{{ $elem_val }}">
+{{ end }}

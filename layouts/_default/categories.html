@@ -1,0 +1,40 @@
+{{- define "title" -}}
+{{- T "title.all" -}}
+{{- T "title.category" -}}
+{{- end -}}
+
+{{- define "header" -}}
+<h1 itemprop="name headline">
+{{- T "title.all" -}}
+{{- T "title.category" -}}
+</h1>
+{{- end -}}
+
+
+{{- define "main" -}}
+{{ $categories := (index (where .Site.Sections "Title" "Categories") 0).Sections }}
+<div class="collapse wrap">
+{{- range $categories -}}
+<div>
+	<h2 class="item header">{{ .Title }}</h2>
+	{{- if .Sections -}}
+	{{- range .Sections -}}
+	<h3 class="item section">{{ .Title }}</h3>
+	{{- template "article" . -}}
+	{{- end -}}
+	{{- else -}}
+	{{- template "article" . -}}
+	{{- end -}}
+</div>
+{{- end -}}
+</div>
+{{- end -}}
+
+{{ define "article"}}
+{{ range .Pages }}
+{{- partial "components/article-list.html" . -}}
+{{ end }}
+{{ end }}
+
+{{- define "sidebar" -}}
+{{- end -}}

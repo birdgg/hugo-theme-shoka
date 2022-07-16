@@ -1,0 +1,33 @@
+<script>
+	var CONFIG = {
+    "version": "0.2.5",
+    "hostname": {{- .Site.BaseURL -}},
+    "root": "/",
+    "statics": "/",
+    "favicon": {
+        "normal": "images/favicon.ico",
+        "hidden": "images/failure.ico"
+    },
+    "darkmode": {{- .Site.Params.darkmode -}},
+    "auto_scroll": {{- .Site.Params.auto_scroll -}},
+    "loader": {
+        "start": {{- .Site.Params.loader.start -}},
+        "switch": {{- .Site.Params.loader.switch -}}
+    },
+    "search": null,
+    "quicklink": {
+        "timeout": 3000,
+        "priority": true,
+        "ignores": [
+            null,
+            null
+        ]
+    },
+    "fireworks": [
+        "rgba(255,182,185,.9)",
+        "rgba(250,227,217,.9)",
+        "rgba(187,222,214,.9)",
+        "rgba(138,198,209,.9)"
+    ]
+}
+</script>

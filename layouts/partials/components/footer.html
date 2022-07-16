@@ -1,0 +1,44 @@
+{{ $scratch := newScratch }}
+{{ range (where .Site.RegularPages "Type" "in" "posts") }}
+{{ $scratch.Add "wordcount" .WordCount }}
+{{ $scratch.Add "timecount" .ReadingTime}}
+{{ end }}
+
+<div class="status">
+	<div class="copyright">
+		&copy; {{ .Site.Params.since }}-
+		<span itemprop="copyrightYear">{{ now.Format "2006" }}</span>
+		<span class="with-love">
+			<i class="ic i-sakura rotate"></i>
+		</span>
+		<span class="author" itemprop="copyrightHolder">{{ .Site.Params.author }} @ {{ .Site.Title }}</span>
+	</div>
+
+	<div class="count">
+		<span class="post-meta-item-icon">
+			<i class="ic i-chart-area"></i>
+		</span>
+		<span title="{{ T " symbols_count_time.count_total" }}">
+			{{ $scratch.Get "wordcount" | lang.NumFmt 0 }}
+			{{ T "symbols_count_time.word"}}
+		</span>
+
+		<span class="post-meta-divider">|</span>
+		<span class="post-meta-item-icon">
+			<i class="ic i-coffee"></i>
+		</span>
+		<span title="{{ T " symbols_count_time.time_total" }}">
+			{{ $scratch.Get "timecount" | lang.NumFmt 0 }}
+			{{ T "symbols_count_time.time_minutes" }}
+		</span>
+	</div>
+
+	<div class="powered-by">
+		{{ T "footer.powered" }}
+		<a href="https://gohugo.io" rel="noopener external nofollow noreferrer" target="_blank" class="exturl"
+			title="Hugo">Hugo</a>
+		& Theme.
+		<a href="https://github.com/amehime/hexo-theme-shoka" rel="noopener external nofollow noreferrer" target="_blank"
+			class="exturl" title="Shoka">Shoka</a>
+	</div>
+</div>
