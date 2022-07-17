@@ -4,6 +4,8 @@ defaultContentLanguage: zh-cn
 title: "Birdgg's blog"
 theme: "hugo-theme-shoka"
 
+enableEmoji: true
+
 paginate: 8
 taxonomies:
   tag: tags

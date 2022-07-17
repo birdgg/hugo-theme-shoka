@@ -1,9 +1,11 @@
 ---
-title: "JS中文排版测试"
+title: "排版测试"
 author: ["birdgg"]
-date: 2022-07-12T12:46:00+08:00
-tags: ["tag1", "tag2"]
+date: 2022-07-12T11:58:00+08:00
+lastmod: 2022-07-17T11:23:14+08:00
+tags: ["work"]
 draft: false
+series: ["start"]
 ---
 
 ## 中文文章排版实例：论语学而篇第一 {#中文文章排版实例-论语学而篇第一}
@@ -26,7 +28,7 @@ draft: false
 
 总之，本章提出以学习为乐事，做到人不知而不愠，反映出孔子学而不厌、诲人不倦、注重修养、严格要求自己的主张。这些思想主张在《论语》书中多处可见，有助于对第一章内容的深入了解。
 
-## 表格 {#表格}
+### 表格 {#表格}
 
 | wreslter                | origin       | Finisher           |
 | ----------------------- | ------------ | ------------------ |
@@ -36,10 +38,11 @@ draft: false
 | Vader                   | Boulder, CO  | Vader Bomb         |
 | Razor Ramon             | Chuluota, FL | Razor's Edge       |
 
-## 代码块 {#代码块}
+### 代码块 {#代码块}
 
-```javascript
-function GetTitleFunc(style) {
+```go
+// If an unknown or empty style is provided, AP style is what you get.
+func GetTitleFunc(style string) func(s string) string {
   switch strings.ToLower(style) {
   case "go":
     return strings.Title
@@ -51,7 +54,7 @@ function GetTitleFunc(style) {
 }
 ```
 
-## 列表 {#列表}
+### 列表 {#列表}
 
 1.  \***\*Nested lists are rarely a good idea.\*\***
     - You might feel like you are being really "organized" or something but you are just creating a gross shape on the screen that is hard to read.
@@ -75,12 +78,6 @@ function GetTitleFunc(style) {
 - Only those who have the patience to do simple things perfectly ever acquire the skill to do difficult things easily. &lt;/br&gt;
   只有有耐心圆满完成简单工作的人，才能够轻而易举的完成困难的事。
 
-## 引用 {#引用}
+### 引用 {#引用}
 
 > 我想：我同赵贵翁有什么仇，同路上的人又有什么仇；只有廿年以前，把古久先生的陈年流水簿子 ⑶，踹了一脚，古久先生很不高兴。赵贵翁虽然不认识他，一定也听到风声，代抱不平；约定路上的人，同我作冤对。但是小孩子呢？那时候，他们还没有出世，何以今天也睁着怪眼睛，似乎怕我，似乎想害我。这真教我怕，教我纳罕而且伤心。
-
-### 套娃引用 {#套娃引用}
-
-> &gt; 题作呐喊，就是为革命者助战振威。呐喊中的小说，以振聋发聩的气势，揭示了中国的社会面貌，控诉了封建制度的罪恶，喊出了五四时期革命者的心声。
-> &gt; > &gt; &gt; 我不见他，已是三十多年；今天见了，精神分外爽快。才知道以前的三十多年，全是发昏；然而须十分小心。不然，那赵家的狗，何以看我两眼呢？ —— 鲁迅
-> &gt; &gt; > &gt; &gt; &gt; 使劲套娃

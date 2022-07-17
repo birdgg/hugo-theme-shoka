@@ -1,22 +1,17 @@
-#+filetags: tag1 tag2 @cat1 @cat2
+#+TAGS: work(w)  home(h)  tennisclub(t)  laptop(l)  pc(p)
 #+hugo_base_dir: ../
 #+hugo_front_matter_format: yaml
+#+hugo_auto_set_lastmod: t
+#+hugo_paired_shortcodes: link-cards link-card
 #+author: birdgg
 
 
-* DONE My first post :tag1:@cat1
+* DONE 排版测试 :work:
 CLOSED: [2022-07-12 Tue 11:58]
 :PROPERTIES:
-:EXPORT_FILE_NAME: my-first-post
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series helloworld
-:END:
-This is my post body
-
-* DONE 中文排版测试 :tag1:@cat1
-CLOSED: [2022-07-12 Tue 12:46]
-:PROPERTIES:
-:EXPORT_FILE_NAME: hello-word
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series helloworld
+:EXPORT_FILE_NAME: typo-test
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_SECTION: posts/other
 :END:
 ** 中文文章排版实例：论语学而篇第一
 *作者：* 孔子（ 前 551 年 9 月 28 日－前 479 年 4 月 11 日 ）
@@ -91,12 +86,172 @@ func GetTitleFunc(style string) func(s string) string {
  我想：我同赵贵翁有什么仇，同路上的人又有什么仇；只有廿年以前，把古久先生的陈年流水簿子 ⑶，踹了一脚，古久先生很不高兴。赵贵翁虽然不认识他，一定也听到风声，代抱不平；约定路上的人，同我作冤对。但是小孩子呢？那时候，他们还没有出世，何以今天也睁着怪眼睛，似乎怕我，似乎想害我。这真教我怕，教我纳罕而且伤心。
 #+end_quote
 
-**** 套娃引用
 
-#+begin_quote
-> 题作呐喊，就是为革命者助战振威。呐喊中的小说，以振聋发聩的气势，揭示了中国的社会面貌，控诉了封建制度的罪恶，喊出了五四时期革命者的心声。
->
-> > 我不见他，已是三十多年；今天见了，精神分外爽快。才知道以前的三十多年，全是发昏；然而须十分小心。不然，那赵家的狗，何以看我两眼呢？ —— 鲁迅
-> >
-> > > 使劲套娃
-#+end_quote
+* DONE shortcode
+CLOSED: [2022-07-16 Sat 23:43]
+:PROPERTIES:
+:EXPORT_FILE_NAME: shortcode
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_SECTION: posts/program/hugo
+:END:
+** Links Card
+#+begin_src markdown
+{{</* link-cards */>}}
+
+{{</* link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me"
+image="https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg" color="#e9546b" */>}}
+
+{{</* link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" */>}}
+
+{{</* /link-cards */>}}
+#+end_src
+
+#+begin_export hugo
+{{< link-cards >}}
+{{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" image="https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg" color="#e9546b" >}}
+{{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" >}}
+{{< /link-cards >}}
+#+end_export
+** effects 文字特效
+*bold*
+/italic/
+=verbatim=
+_underline_
++strike-through+
+#+begin_src markdown
+{{</* color "rainbow" "赤橙黄绿青蓝紫" */>}}
+{{</* color "red" "red text" */>}}
+{{</* color "pink" "pink text" */>}}
+{{</* color "orange" "orange text" */>}}
+{{</* color "yellow" "yellow text" */>}}
+{{</* color "green" "green text" */>}}
+{{</* color "aqua" "aqua text" */>}}
+{{</* color "blue" "blue text" */>}}
+{{</* color "purple" "purple text" */>}}
+{{</* color "grey" "grey text" */>}}
+#+end_src
+
+#+begin_export hugo
+{{< color "rainbow" "赤橙黄绿青蓝紫" >}}
+{{< color "red" "red text" >}}
+{{< color "pink" "pink text" >}}
+{{< color "orange" "orange text" >}}
+{{< color "yellow" "yellow text" >}}
+{{< color "green" "green text" >}}
+{{< color "aqua" "aqua text" >}}
+{{< color "blue" "blue text" >}}
+{{< color "purple" "purple text" >}}
+{{< color "grey" "grey text" >}}
+#+end_export
+
+** spoiler 隐藏文字
+#+begin_src markdown
+{{</* hidden-text "Hide text" */>}}
+{{</* hidden-text "Hide text" blur */>}}
+#+end_src
+
+#+begin_export hugo
+{{< hidden-text "Hide text" >}} ： 鼠标滑过显示内容
+
+{{< hidden-text "Hide text" blur >}} ： 选中文字显示内容
+#+end_export
+
+** label 标签块
+#+begin_src markdown
+This is a {{</* tag default "default" */>}}
+This is a {{</* tag primary "primary" */>}}
+This is a {{</* tag info "info" */>}}
+This is a {{</* tag success ":heavy_check_mark: success" */>}}
+This is a {{</* tag warning "warning" */>}}
+This is a {{</* tag danger ":broken_heart: danger" */>}}
+#+end_src
+
+#+begin_export hugo
+{{< tag default "default" >}}
+<br/>
+{{< tag primary "primary" >}}
+<br/>
+{{< tag info "info" >}}
+<br/>
+{{< tag success ":heavy_check_mark: success" >}}
+<br/>
+{{< tag warning "warning" >}}
+<br/>
+{{< tag danger ":broken_heart: danger" >}}
+<br/>
+#+end_export
+
+** note 提醒块
+#+begin_src markdown
+{{</* notice default */>}}
+default
+{{</* /notice */>}}
+
+{{</* notice primary */>}}
+primary
+{{</* /notice */>}}
+
+{{</* notice info */>}}
+info
+{{</* /notice */>}}
+
+{{</* notice success */>}}
+success
+{{</* /notice */>}}
+
+{{</* notice warning */>}}
+warning
+{{</* /notice */>}}
+
+{{</* notice danger */>}}
+danger
+{{</* /notice */>}}
+
+{{</* notice no-icon */>}}
+no icon
+{{</* /notice */>}}
+#+end_src
+
+#+begin_export hugo
+{{< notice default >}}
+default
+{{< /notice >}}
+
+{{< notice primary >}}
+primary
+{{< /notice >}}
+
+{{< notice info >}}
+info
+{{< /notice >}}
+
+{{< notice warning >}}
+warning
+{{< /notice >}}
+
+{{< notice danger >}}
+danger
+{{< /notice >}}
+
+{{< notice danger no-icon >}}
+no icon
+{{< /notice >}}
+#+end_export
+** tab 标签卡
+#+begin_src markdown
+
+#+end_src
+
+#+begin_export hugo
+{{< tab-view >}}
+
+{{< tab-panel name="中文" checked=true >}}
+百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
+{{< /tab-panel >}}
+
+{{< tab-panel name="Español" >}}
+Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un género con alrededor de 110 integrantes que se incluye dentro de la familia de las liliáceas. Los lirios son herbáceas perennes de tallos erectos con numerosas hojas alternas, lineares a lance balas. Crecen a partir de bulbos formados por capas de escamas carnosas sin túnica.
+{{< /tab-panel >}}
+
+{{< /tab-view >}}
+#+end_export
