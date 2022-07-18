@@ -1,0 +1,11 @@
+{{- $vendor := slice "pace" "pjax" "fetch" "anime" "algolia" "instantsearch" "lazyload" "quicklink" -}}
+{{- $vendorJs := .Site.Params.vendors.js -}}
+{{- $local := newScratch -}}
+{{- range $vendor -}}
+    {{ $js := printf "%s" (index $vendorJs .) }}
+    {{  $local.Add "vendorjs" (slice $js) }}
+{{- end -}}
+
+{{ $vendorJsString := delimit ($local.Get "vendorjs") ","  }}
+
+<script {{printf "src='//cdn.jsdelivr.net/combine/%s'" $vendorJsString | safeHTMLAttr}}></script>

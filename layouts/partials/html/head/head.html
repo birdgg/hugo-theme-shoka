@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#FFF">
 
 {{- if .Site.Params.keywords -}}
-<meta name="keywords"
-    content="{{- range union (union .Params.tags .Params.categories) .Site.Params.keywords -}}{{ . }},{{- end -}}" />
+    <meta name="keywords"
+          content="{{- range union union .Params.tags .Site.Params.keywords -}}{{ . }},{{- end -}}" />
 {{- end -}}
 <meta name="description" content="{{- $description -}}" />
 <meta itemprop="description" content="{{- $description -}}" />
@@ -19,20 +19,30 @@
 <title>{{- $title -}}</title>
 {{- $css := resources.Match "css/*.css" | resources.Concat "app.css" -}}
 {{- if .Site.IsServer -}}
-<link rel="stylesheet" href="{{- $css.RelPermalink -}}" />
+    <link rel="stylesheet" href="{{- $css.RelPermalink -}}" />
 {{- else -}}
-{{- $styles := $styles | fingerprint | resources.PostProcess -}}
-<link rel="stylesheet" href="{{- print $public_cdn $css.RelPermalink -}}" integrity="{{- $css.Data.Integrity -}}" />
+    {{- $styles := $styles | fingerprint -}}
+    <link rel="stylesheet" href="{{- print $public_cdn $css.RelPermalink -}}" integrity="{{- $css.Data.Integrity -}}" />
 {{- end -}}
 
 {{- partial "html/head/opengraph/include.html" . -}}
 
+{{- $favicon_icon := resources.Get "images/icon.png" -}}
+{{- $favicon_icon = $favicon_icon.Resize "48x48 ico icon" -}}
+{{- $favicon_icon = slice $favicon_icon | resources.Concat "favicon.ico" -}}
+{{- $favicon_icon = print $public_cdn $favicon_icon.RelPermalink -}}
+
+
+<link rel="shortcut icon" href="{{- $favicon_icon -}}" type="image/x-icon" />
+
+{{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate (print ("/" | relLangURL) "manifest.json") . -}}
+<link rel="manifest" href="{{- $manifest.RelPermalink -}}" />
+
+{{- $icon := print $public_cdn (resources.Get "images/icon.png").RelPermalink -}}
+<link href="{{- $icon -}}" rel="shortcut icon" />
+<link href="{{- $icon -}}" rel="Bookmark" />
+<link rel="apple-touch-icon" href="{{- $icon -}}" />
+<link rel="icon" type="image/ico" sizes="32x32" href="{{- $icon -}}">
+
 {{- partial "html/head/site-schema.html" . -}}
 
-
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
-
-
-
-{{- partial "html/styles.html" . -}}

@@ -1,0 +1,17 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+
+{{- partial "html/script/vendors.html" . -}}
+{{- partial "html/script/local.html" . -}}
+{{- partial "html/script/config.html" . -}}
+
+{{ $dom := resources.Get "js/dom.js" }}
+{{ $fireworks := resources.Get "js/fireworks.js" }}
+{{ $global := resources.Get "js/global.js" }}
+{{ $page := resources.Get "js/page.js" }}
+{{ $pjax := resources.Get "js/pjax.js" }}
+{{ $player := resources.Get "js/player.js" }}
+{{ $sidebar := resources.Get "js/sidebar.js" }}
+{{ $utils := resources.Get "js/utils.js" }}
+
+{{ $js := slice $dom $global $fireworks $page $pjax $player $sidebar $utils | resources.Concat "js/main.js" | js.Build (dict "minify" hugo.IsProduction) }}
+<script src="{{ $js.Permalink }}"></script>

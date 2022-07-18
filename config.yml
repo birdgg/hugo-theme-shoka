@@ -29,13 +29,8 @@ params:
       paypal: /paypal.png
   
   license:
-    enable: true
     name: BY-NC-SA
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
-
-  prism: true
-  prismStyle: tomorrow-night
-  prismLanguages: ["javascript", "typescript", "kotlin", "swift"]
 
   chart: false
   math: false
@@ -46,9 +41,9 @@ params:
     switch: false
 
   vendors:
-    cdn: 'cdn.jsdelivr.net'
     css:
       katex: npm/katex@0.12.0/dist/katex.min.css
+      comment: css/comment.css
       fancybox: combine/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css
     js:
       pace: npm/pace-js@1.0.2/pace.min.js
@@ -59,5 +54,7 @@ params:
       instantsearch: npm/instantsearch.js@4/dist/instantsearch.production.min.js
       lazyload: npm/lozad@1/dist/lozad.min.js
       quicklink: npm/quicklink@2/dist/quicklink.umd.js
-      # fancybox: combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGal
-      # chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js
+      fancybox: combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js
+      valine: gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js
+      copy_tex: npm/katex@0.12.0/dist/contrib/copy-tex.min.js
+      chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js

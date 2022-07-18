@@ -1,0 +1,8 @@
+{{- $href := urls.Parse .Destination -}}
+{{- if in (printf "%#v" .Page.Site.BaseURL) $href.Host -}}
+    <a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}">{{- .Text | safeHTML -}}</a>
+{{- else -}}
+    <span class="exturl" data-url="{{- .Destination | base64Encode -}}">
+        {{- .Text | safeHTML -}}
+    </span>
+{{- end -}}

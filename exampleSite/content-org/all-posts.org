@@ -106,12 +106,10 @@ image="https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg" color
 {{</* /link-cards */>}}
 #+end_src
 
-#+begin_export hugo
-{{< link-cards >}}
-{{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" image="https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg" color="#e9546b" >}}
-{{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" >}}
-{{< /link-cards >}}
-#+end_export
+#+md: {{< link-cards >}}
+#+md: {{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" image="https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg" color="#e9546b" >}}
+#+md: {{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" >}}
+#+md: {{< /link-cards >}}
 ** effects 文字特效
 *bold*
 /italic/
@@ -239,19 +237,39 @@ no icon
 #+end_export
 ** tab 标签卡
 #+begin_src markdown
+{{</* tab-panel name="中文" id=tab1 */>}}
+百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
+{{</* /tab-panel */>}}
 
+{{</* tab-panel name="Español" id=tab1 */>}}
+Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un género con alrededor de 110 integrantes que se incluye dentro de la familia de las liliáceas. Los lirios son herbáceas perennes de tallos erectos con numerosas hojas alternas, lineares a lance balas. Crecen a partir de bulbos formados por capas de escamas carnosas sin túnica.
+{{</* /tab-panel */>}}
 #+end_src
 
 #+begin_export hugo
-{{< tab-view >}}
-
-{{< tab-panel name="中文" checked=true >}}
+{{< tab-panel name="中文" id=tab1 >}}
 百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
 {{< /tab-panel >}}
 
-{{< tab-panel name="Español" >}}
+{{< tab-panel name="Español" id=tab1 >}}
 Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un género con alrededor de 110 integrantes que se incluye dentro de la familia de las liliáceas. Los lirios son herbáceas perennes de tallos erectos con numerosas hojas alternas, lineares a lance balas. Crecen a partir de bulbos formados por capas de escamas carnosas sin túnica.
 {{< /tab-panel >}}
+#+end_export
 
-{{< /tab-view >}}
+** collapse 折叠块
+#+begin_src markdown
+{{</* accordion primary primary */>}}
+accordion
+{{</* /accordion */>}}
+#+end_src
+
+#+begin_export hugo
+{{< accordion primary primary >}}
+accordion
+{{< /accordion >}}
+#+end_export
+** media 多媒体
+
+#+begin_export hugo
+{{< video name="test" >}}
 #+end_export

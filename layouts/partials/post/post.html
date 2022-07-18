@@ -4,8 +4,6 @@
 	<span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
 		<meta itemprop="image" content="">
 		<meta itemprop="name" content="{{ .Site.Params.author }}">
-		{{/*
-		<meta itemprop="description" content="{{ subtitle }}, {{ description }}"> */}}
 	</span>
 
 	<span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -31,8 +29,6 @@
 			{{- partial "post/reward.html" . -}}
 		{{- end -}}  */}}
 
-		{{- if .Site.Params.license.enable -}}
-			{{- partial "post/copyright.html" . -}}
-		{{- end -}}
+		{{- partial "post/copyright.html" . -}}
 	</footer>
 </article>

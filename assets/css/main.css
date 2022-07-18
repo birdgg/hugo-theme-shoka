@@ -2412,7 +2412,8 @@ main >.inner {
 .md mark {
   background-color: #dbfdad;
 }
-.md ins {
+.md ins,
+.md .underline {
   --line-color: var(--note-hover, var(--primary-color));
   text-decoration: none;
   border-bottom: 0.125rem solid var(--line-color);
@@ -4293,7 +4294,7 @@ span.label {
   position: relative;
 }
 .tabs .nav {
-  overflow: hidden;
+  /* overflow: hidden; */
   border-bottom: 0.0625rem solid var(--grey-1-a7);
   height: 2.6875rem;
 }

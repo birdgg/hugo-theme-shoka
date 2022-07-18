@@ -6,6 +6,9 @@ theme: "hugo-theme-shoka"
 
 enableEmoji: true
 
+hasCJKLanguage: true
+summaryLength: 50
+
 paginate: 8
 taxonomies:
   tag: tags

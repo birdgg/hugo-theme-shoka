@@ -52,25 +52,29 @@ const siteRefresh = function (reload) {
   LOCAL_HASH = 0
   LOCAL_URL = window.location.href
 
-  vendorCss('katex');
-  vendorJs('copy_tex');
-  vendorCss('mermaid');
-  vendorJs('chart');
-  vendorJs('valine', function() {
-    var options = Object.assign({}, CONFIG.valine);
-    options = Object.assign(options, LOCAL.valine||{});
-    options.el = '#comments';
-    options.pathname = LOCAL.path;
-    options.pjax = pjax;
-    options.lazyload = lazyload;
+  vendorCss("katex")
+  vendorJs("copy_tex")
+  vendorCss("mermaid")
+  vendorJs("chart")
+  vendorJs(
+    "valine",
+    function () {
+      var options = Object.assign({}, CONFIG.valine)
+      options = Object.assign(options, LOCAL.valine || {})
+      options.el = "#comments"
+      options.pathname = LOCAL.path
+      options.pjax = pjax
+      options.lazyload = lazyload
 
-    new MiniValine(options);
+      new MiniValine(options)
 
-    setTimeout(function(){
-      positionInit(1);
-      postFancybox('.v');
-    }, 1000);
-  }, window.MiniValine);
+      setTimeout(function () {
+        positionInit(1)
+        postFancybox(".v")
+      }, 1000)
+    },
+    window.MiniValine
+  )
 
   if (!reload) {
     $.each("script[data-pjax]", pjaxScript)
@@ -137,7 +141,7 @@ const siteInit = function () {
 window.addEventListener("DOMContentLoaded", siteInit)
 
 console.log(
-  "%c Theme.Shoka v" + CONFIG.version + " %c https://shoka.lostyu.me/ ",
+  "%c Theme.Shoka %c" + "https://shoka.lostyu.me/ ",
   "color: white; background: #e9546b; padding:5px 0;",
   "padding:4px;border:1px solid #e9546b;"
 )
