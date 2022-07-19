@@ -1,7 +1,7 @@
 {{- $l_text := print "<i class='ic i-creative-commons'></i>"  .Site.Params.license.name -}}
 <script data-config type="text/javascript">
  var LOCAL = {
-	 path: {{- .RelPermalink	-}},
+	 path: {{- .RelPermalink -}},
 	 favicon: {
 		 show: "{{- T "favicon.show" -}}",
 		 hide: "{{- T "favicon.hide" -}}" 
@@ -11,10 +11,6 @@
 		 empty: "{{- T "search.empty" -}}",
 		 stats: "{{- T "search.stats" -}}"
 	 },
-	 ignores: [
-		 function (e) { return e.includes("#") },
-		 function (e) { return new RegExp(LOCAL.path + "$").test(e) }
-	 ],
 	 {{- if .Site.Params.chart -}}
 	 chart: true,
 	 {{- end -}}
@@ -26,7 +22,22 @@
 	 mermaid: true,
 	 {{- end -}}
 	 audio: {},
+     {{- if .Site.Params.fancybox -}}
 	 fancybox: true,
+     {{- end -}}
 	 copyright: {{- T "tips.copyright" (dict "s" $l_text) -}},
+     quiz: {
+         choice: {{- T "quiz.choice" -}},
+         multiple: {{- T "quiz.multiple" -}},
+         true_false: {{- T "quiz.true_false" -}},
+         essay: {{- T "quiz.essay" -}},
+         gap_fill: {{- T "quiz.gap_fill" -}},
+         mistake: {{- T "quiz.mistake" -}},
+
+     },
+	 ignores: [
+		 function (uri) { return uri.includes("#") },
+		 function (uri) { return new RegExp(LOCAL.path + "$").test(uri) }
+	 ],
  }
 </script>

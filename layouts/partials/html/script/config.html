@@ -1,6 +1,5 @@
 <script>
 	var CONFIG = {
-    "version": "0.2.5",
     "hostname": {{- .Site.BaseURL -}},
     "root": "/",
     "statics": "/",
@@ -10,19 +9,39 @@
     },
     "darkmode": {{- .Site.Params.darkmode -}},
     "auto_scroll": {{- .Site.Params.auto_scroll -}},
+    "js": {
+        valine: {{- .Site.Params.vendors.js.valine -}},
+        chart: {{- .Site.Params.vendors.js.chart -}},
+        copy_tex: {{- .Site.Params.vendors.js.copy_tex -}},
+        fancybox: {{- .Site.Params.vendors.js.fancybox -}},
+    },
+    css: {
+        valine: "css/comment.css",
+        katex: {{- .Site.Params.vendors.css.katex -}},
+        mermaid: "css/mermaid.css",
+        fancybox: {{- .Site.Params.vendors.css.fancybox -}},
+    },
     "loader": {
         "start": {{- .Site.Params.loader.start -}},
         "switch": {{- .Site.Params.loader.switch -}}
     },
     "search": null,
+    "valine": {
+    },
     "quicklink": {
         "timeout": 3000,
         "priority": true,
-        "ignores": [
-            null,
-            null
-        ]
     },
+    {{- if .Site.Params.algolia -}}
+    "search": {
+        appID: {{- .Site.Params.algolia.appId -}},
+        apiKey: {{- .Site.Params.algolia.apiKey -}},
+        indexName: {{- .Site.Params.algolia.indexName -}},
+        hits: {
+           per_page: {{- .Site.Params.algolia.hits -}},
+        }
+    },
+    {{- end -}}
     "fireworks": [
         "rgba(255,182,185,.9)",
         "rgba(250,227,217,.9)",
