@@ -1,5 +1,3 @@
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
-
 {{- $title := partial "data/title" . .RelPermalink -}}
 {{- $description := partial "data/description" . .RelPermalink -}}
 
@@ -21,8 +19,8 @@
 {{- if .Site.IsServer -}}
     <link rel="stylesheet" href="{{- $css.RelPermalink -}}" />
 {{- else -}}
-    {{- $styles := $styles | fingerprint -}}
-    <link rel="stylesheet" href="{{- print $public_cdn $css.RelPermalink -}}" integrity="{{- $css.Data.Integrity -}}" />
+    {{- $styles := $css | fingerprint -}}
+    <link rel="stylesheet" href="{{- $css.RelPermalink -}}" integrity="{{- $css.Data.Integrity -}}" />
 {{- end -}}
 
 {{- partial "html/head/opengraph/include.html" . -}}
@@ -30,7 +28,7 @@
 {{- $favicon_icon := resources.Get "images/icon.png" -}}
 {{- $favicon_icon = $favicon_icon.Resize "48x48 ico icon" -}}
 {{- $favicon_icon = slice $favicon_icon | resources.Concat "favicon.ico" -}}
-{{- $favicon_icon = print $public_cdn $favicon_icon.RelPermalink -}}
+{{- $favicon_icon = print $favicon_icon.RelPermalink -}}
 
 
 <link rel="shortcut icon" href="{{- $favicon_icon -}}" type="image/x-icon" />
@@ -38,7 +36,7 @@
 {{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate (print ("/" | relLangURL) "manifest.json") . -}}
 <link rel="manifest" href="{{- $manifest.RelPermalink -}}" />
 
-{{- $icon := print $public_cdn (resources.Get "images/icon.png").RelPermalink -}}
+{{- $icon := print (resources.Get "images/icon.png").RelPermalink -}}
 <link href="{{- $icon -}}" rel="shortcut icon" />
 <link href="{{- $icon -}}" rel="Bookmark" />
 <link rel="apple-touch-icon" href="{{- $icon -}}" />
