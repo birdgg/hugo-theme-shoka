@@ -7,8 +7,8 @@
 	<h2 class="divider">{{T "index.posts"}}</h2>
 	{{ end }}
 	<div class="segments posts">
-		{{- range $elem_val := $paginator.Pages -}}
-		{{- partial "components/segment.html" . -}}
+		{{- range $paginator.Pages -}}
+		{{- partial "components/segment.html" (dict "context" $ "post" .) -}}
 		{{- end -}}
 	</div>
 </div>

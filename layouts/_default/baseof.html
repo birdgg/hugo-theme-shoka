@@ -7,16 +7,17 @@
         {{- block "title" .}}
         {{- end }}
         {{if .Site.Params.alternate}}
-        {{ print .Site.Params.alternate " = " }}
+            {{ print .Site.Params.alternate " = " }}
         {{end}}
         {{ .Site.Title }}
         {{if .Site.Params.subtitle }}
-        {{ print " = " .Site.Params.subtitle}}
+            {{ print " = " .Site.Params.subtitle}}
         {{end}}
     </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
+    {{ .Scratch.Set "randomServer" (index (seq 1 4 | shuffle | first 1) 0) }}
     {{- partial "components/loading.html" . -}}
     <div id="container">
         <header id="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -38,7 +39,15 @@
                 </div>
                 {{- partial "components/header.html" . -}}
             </div>
-            {{- partial "components/imgs.html" . -}}
+            <div id="imgs">
+                <ul>
+                    {{- range seq 6 -}}
+                        {{ with partial "components/randomImg.html" (dict "size" "large" "context" $) }}
+                        <li class="item" {{ printf "data-background-image='%s'" . | safeHTMLAttr }}></li>
+                        {{- end  -}}
+                    {{- end  -}}
+                </ul>
+            </div>
         </header>
         {{- partial "components/waves.html" . -}}
 

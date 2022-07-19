@@ -1,24 +1,36 @@
-{{ $url := .RelPermalink}}
-{{ $title := .Title}}
+{{ $post := .post  }}
+{{ $url := .post.RelPermalink}}
+{{ $title := .post.Title | default (T "post.untitled")}}
+{{ $cover := partial "components/randomImg.html" (dict "context" .context) }}
+{{ if .post.Params.cover }}
+	{{ $cover := .post.Params.cover }}
+{{ end }}
+{{ $summary := .post.Summary | plainify | truncate 300  }}
+{{ $category := .post.CurrentSection.Title  }}
+
 <article class="item">
 	<div class="cover">
-		<a href="{{ $url }}" itemprop="url" title="Hello World">
-			<img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicis3attqj20zk0m8k7l.jpg"></a>
+		<a href="{{- $url -}}" itemprop="url" title="{{- $title -}}">
+		<img data-src="{{- $cover -}}"></a>
 	</div>
 	<div class="info">
-		{{- partial "components/postmeta.html" (dict "context" . "full" false) -}}
+		{{- partial "components/postmeta.html" (dict "context" .post "full" false) -}}
 		<h3>
-			<a href="{{ .Permalink }}" itemprop="url" title="Hello World">
+			<a href="{{- $url -}}" itemprop="url" title="{{- $title -}}">
 				{{- $title -}}
 			</a>
 		</h3>
 		<div class="excerpt">
-			{{- .Summary | plainify -}}
+			{{- $summary -}}
 		</div>
 		<div class="meta footer">
 			<span>
+			<a href="/categories/{{- $category | lower -}}" itemprops="url" title={{- $category -}}>
+				<i class="ic i-flag"></i>
+				{{- $category -}}
+			</a>
 			</span>
 		</div>
-		<a href="{{ $url }}" itemprop="url" title="{{ $title }}" class="btn">more...</a>
+		<a href="{{- $url -}}" itemprop="url" title="{{- $title -}}" class="btn">more...</a>
 	</div>
 </article>

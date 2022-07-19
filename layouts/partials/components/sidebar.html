@@ -21,7 +21,6 @@
 				{{- if $has_related -}}
 				<ul>
 				{{- range $elem_index, $elem_val := ($local.Get "series_post") -}}
-				  {{printf "#%v" $elem_index}}
 					{{- if eq .File.UniqueID $.context.File.UniqueID -}}
 					<li class="{{if eq .File.UniqueID $.context.File.UniqueID }}active{{end}}">
 						{{- .Title -}}
