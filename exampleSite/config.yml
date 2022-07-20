@@ -1,4 +1,4 @@
-baseURL: "https://birdgg.github.io/hugo-theme-shoka/"
+baseURL: "https://birdgg.github.io/"
 languageCode: "en-us"
 defaultContentLanguage: zh-cn
 title: "Birdgg's blog"
@@ -44,3 +44,7 @@ menu:
       icon: ic i-feather
     weight: 40
     url: /archives/
+
+params:
+  widgets:
+    random_posts: true

@@ -39,7 +39,7 @@
                 </div>
                 {{- partial "components/header.html" . -}}
             </div>
-            <div id="imgs">
+            <div id="imgs" class="pjax">
                 <ul>
                     {{- range seq 6 -}}
                         {{ with partial "components/randomImg.html" (dict "size" "large" "context" $) }}
@@ -68,6 +68,7 @@
         <footer id="footer">
             <div class="inner">
                 <div class="widgets">
+                    {{- partial "components/widgets.html" . -}}
                 </div>
                 {{- partial "components/footer.html" . -}}
             </div>

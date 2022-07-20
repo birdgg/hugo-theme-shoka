@@ -1,0 +1,19 @@
+{{- if .Site.Params.widgets.random_posts -}}
+<div class="rpost pjax">
+    <h2>{{- T "index.random_posts" -}}</h2>
+    <ul>
+        {{- range (where (where .Site.RegularPages "Type" "posts") ".Title" "!=" .Title) | shuffle | first 10  -}}
+            {{ $title := .Title | default (T "post.untitled") }}
+            <li class="item">
+                <span><a href="{{- .RelPermalink -}}" title="{{- $title -}}">{{- $title -}}</a></span>
+            </li>
+        {{- end -}}
+    </ul>
+</div>
+{{- end -}}
+
+{{- if .Site.Params.widgets.recent_comments -}}
+    <div>
+        <h2>{{- T "index.recent_comments" -}}</h2>
+        <ul class="leancloud-recent-comment"></ul>
+{{- end -}}
