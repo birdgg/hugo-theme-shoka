@@ -1,8 +1,8 @@
 <script>
 	var CONFIG = {
-    "hostname": {{- .Site.BaseURL -}},
+    "hostname": "http://example.com",
     "root": "/",
-    "statics": "/",
+    "statics": {{- .Site.Params.statics -}},
     "favicon": {
         "normal": "images/favicon.ico",
         "hidden": "images/failure.ico"
@@ -22,12 +22,11 @@
         fancybox: {{- .Site.Params.vendors.css.fancybox -}},
     },
     "loader": {
-        "start": {{- .Site.Params.loader.start -}},
-        "switch": {{- .Site.Params.loader.switch -}}
+        "start":{{- .Site.Params.loader.start -}},
+        "switch":{{- .Site.Params.loader.switch -}},
     },
     "search": null,
-    "valine": {
-    },
+    "valine": {{- .Site.Data.valine.valine -}},
     "quicklink": {
         "timeout": 3000,
         "priority": true,

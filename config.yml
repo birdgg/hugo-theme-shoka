@@ -6,6 +6,8 @@ params:
   avatar: avatar.jpg
   since: 2005
 
+  statics: /
+
   social:
     github:
       icon: ic i-github

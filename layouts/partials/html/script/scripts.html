@@ -1,7 +1,8 @@
 {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
 
-{{- partial "html/script/vendors.html" . -}}
 {{- partial "html/script/local.html" . -}}
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+{{- partial "html/script/vendors.html" . -}}
 {{- partial "html/script/config.html" . -}}
 
 {{ $dom := resources.Get "js/dom.js" }}

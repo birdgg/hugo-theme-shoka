@@ -48,3 +48,4 @@ menu:
 params:
   widgets:
     random_posts: true
+    recent_comments: true

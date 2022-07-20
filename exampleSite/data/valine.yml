@@ -1,0 +1,24 @@
+valine:
+  appId: IkYoEMgcMR92dFG5RGmdTL6o-gzGzoHsz
+  appKey: uBaPTuHf0aUkmnVYSP1SMpp7
+  placeholder: ヽ(○´∀`)ﾉ♪
+  avatar: mp
+  pageSize: 10
+  lang: zh-CN
+  visitor: true
+  NoRecordIP: false
+  serverURLs:
+  powerMode: true
+  tagMeta:
+    visitor: 新朋友
+    master: 主人
+    friend: 小伙伴
+    investor: 金主粑粑
+  tagColor:
+    master: "var(--color-orange)"
+    friend: "var(--color-aqua)"
+    investor: "var(--color-pink)"
+  tagMember:
+    master:
+    friend:
+    investor:
