@@ -10,9 +10,9 @@ title:
   tag: Tag
   all: All
   not_found: Σ( ° △ °|||)︴404!
-  category_in: Posted in category "%s"
-  tag_in: Posted with tag "%s"
-  archive_in: Posted on "%s"
+  category_in: Posted in category {{.s}}
+  tag_in: Posted with tag {{.s}}
+  archive_in: Posted on {{.s}}
 
 menu:
   home: Home
@@ -58,26 +58,26 @@ post:
     nocopy: "<span class=\"red\">This page is prohibited reprint.</span>"
 
 footer:
-  powered: "Powered by %s"
+  powered: "Powered by {{.s}}"
   total_views: Total Views
   total_visitors: Total Visitors
 
 counter:
   index:
-    post: "%d posts in total"
-    category:  "%d subcategories in total, "
+    post: "{{.d}} posts in total"
+    category:  "{{.d}} subcategories in total, "
   tag_cloud:
     zero: No tags
     one: 1 tag in total
-    other: "%d tags in total"
+    other: "{{.d}} tags in total"
   categories:
     zero: No categories
     one: 1 category in total
-    other: "%d categories in total"
+    other: "{{.d}} categories in total"
   archive_posts:
     zero: No posts.
     one: 1 post.
-    other: "%d posts in total."
+    other: "{{.d}} posts in total."
 
 state:
   posts: posts

@@ -27,6 +27,8 @@ jobs:
             - name: Build Hugo
               run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir "../.." --enableGitInfo
 
+            - name: Run container for atomic-algolia
+              run: docker run --rm -e ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY }} -e ALGOLIA_INDEX_FILE=/public/algolia.json -e ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }} -e ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME }} -v $PWD/exampleSite/public:/public registry.cn-shenzhen.aliyuncs.com/lan-k8s/ubuntu:algolia atomic-algolia
 
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3

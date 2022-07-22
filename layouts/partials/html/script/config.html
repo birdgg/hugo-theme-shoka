@@ -25,22 +25,17 @@
         "start":{{- .Site.Params.loader.start -}},
         "switch":{{- .Site.Params.loader.switch -}},
     },
-    "search": null,
+    "search":{
+        appID: {{- .Site.Params.algolia.appid -}},
+        apiKey: {{- .Site.Params.algolia.apikey -}},
+        indexName: {{- .Site.Params.algolia.indexname -}},
+        hits: {per_page: {{- .Site.Params.algolia.hits -}}},
+    },
     "valine": {{- .Site.Data.valine.valine -}},
     "quicklink": {
         "timeout": 3000,
         "priority": true,
     },
-    {{- if .Site.Params.algolia -}}
-    "search": {
-        appID: {{- .Site.Params.algolia.appId -}},
-        apiKey: {{- .Site.Params.algolia.apiKey -}},
-        indexName: {{- .Site.Params.algolia.indexName -}},
-        hits: {
-           per_page: {{- .Site.Params.algolia.hits -}},
-        }
-    },
-    {{- end -}}
     "fireworks": [
         "rgba(255,182,185,.9)",
         "rgba(250,227,217,.9)",

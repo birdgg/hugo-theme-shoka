@@ -2,10 +2,9 @@
 title: "shortcode"
 author: ["birdgg"]
 date: 2022-07-16T23:43:00+08:00
-lastmod: 2022-07-18T09:45:12+08:00
+lastmod: 2022-07-21T12:42:59+08:00
 draft: false
-series: ["start"]
-tags: ["tag1", "tag2"]
+summary: "shortcode 测试"
 ---
 
 ## Links Card {#links-card}
@@ -28,6 +27,7 @@ image="https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg" color
 {{< link-card name="優萌初華" desc="琉璃的医学 & 编程笔记" link="https://shoka.lostyu.me" >}}
 
 {{< /link-cards >}}
+
 
 ## effects 文字特效 {#effects-文字特效}
 
@@ -61,6 +61,7 @@ _italic_
 {{< color "purple" "purple text" >}}
 {{< color "grey" "grey text" >}}
 
+
 ## spoiler 隐藏文字 {#spoiler-隐藏文字}
 
 ```markdown
@@ -71,6 +72,7 @@ _italic_
 {{< hidden-text "Hide text" >}} ： 鼠标滑过显示内容
 
 {{< hidden-text "Hide text" blur >}} ： 选中文字显示内容
+
 
 ## label 标签块 {#label-标签块}
 
@@ -95,6 +97,7 @@ This is a {{</* tag danger ":broken_heart: danger" */>}}
 <br/>
 {{< tag danger ":broken_heart: danger" >}}
 <br/>
+
 
 ## note 提醒块 {#note-提醒块}
 
@@ -152,11 +155,12 @@ danger
 no icon
 {{< /notice >}}
 
+
 ## tab 标签卡 {#tab-标签卡}
 
 ```markdown
 {{</* tab-panel name="中文" id=tab1 */>}}
-百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少 96 个品种，其中 5 种产于台湾。近年更有不少经过人工杂交而产生的新品种，如 OT 百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
+百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
 {{</* /tab-panel */>}}
 
 {{</* tab-panel name="Español" id=tab1 */>}}
@@ -165,12 +169,13 @@ Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un g
 ```
 
 {{< tab-panel name="中文" id=tab1 >}}
-百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少 96 个品种，其中 5 种产于台湾。近年更有不少经过人工杂交而产生的新品种，如 OT 百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
+百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
 {{< /tab-panel >}}
 
 {{< tab-panel name="Español" id=tab1 >}}
 Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un género con alrededor de 110 integrantes que se incluye dentro de la familia de las liliáceas. Los lirios son herbáceas perennes de tallos erectos con numerosas hojas alternas, lineares a lance balas. Crecen a partir de bulbos formados por capas de escamas carnosas sin túnica.
 {{< /tab-panel >}}
+
 
 ## collapse 折叠块 {#collapse-折叠块}
 
@@ -183,6 +188,7 @@ accordion
 {{< accordion primary primary >}}
 accordion
 {{< /accordion >}}
+
 
 ## media 多媒体 {#media-多媒体}
 

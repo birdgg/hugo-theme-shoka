@@ -8,6 +8,6 @@
 
 ![](https://img.shields.io/github/last-commit/birdgg/hugo-theme-shoka?style=flat-square) ![](https://img.shields.io/github/languages/code-size/birdgg/hugo-theme-shoka?style=flat-square)
 
-A hugo theme export from [hexo-theme-shoka](https://github.com/amehime/hexo-theme-shoka)
+A hugo theme port from [hexo-theme-shoka](https://github.com/amehime/hexo-theme-shoka)
 
 Still in development

@@ -45,7 +45,23 @@ menu:
     weight: 40
     url: /archives/
 
+outputs:
+  home: ["HTML", "RSS", "JSON", "Algolia"]
+
+outputFormats:
+  Algolia:
+    baseName: algolia
+    isPlainText: true
+    mediaType: application/json
+    notAlternative: true
+
 params:
   widgets:
     random_posts: true
     recent_comments: true
+
+  algolia:
+    appid: EKZ0OK6SKN
+    apikey: c4880b6c9b50843998e94547ea3476f4
+    indexname: dev_blog
+    hits: 10

@@ -11,6 +11,7 @@ CLOSED: [2022-07-12 Tue 11:58]
 :PROPERTIES:
 :EXPORT_FILE_NAME: typo-test
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 中文排版测试
 :EXPORT_HUGO_SECTION: posts/other
 :END:
 ** 中文文章排版实例：论语学而篇第一
@@ -92,6 +93,7 @@ CLOSED: [2022-07-16 Sat 23:43]
 :PROPERTIES:
 :EXPORT_FILE_NAME: shortcode
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary shortcode 测试
 :EXPORT_HUGO_SECTION: posts/program/hugo
 :END:
 ** Links Card

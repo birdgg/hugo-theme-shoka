@@ -16,7 +16,6 @@ params:
       icon: ic i-twitter
       link: https://twitter.com
 
-
   favicon:
     apple_touch_icon: /apple-touch-icon.png
 
@@ -43,7 +42,12 @@ params:
     switch: false
 
   widgets:
-    random_posts: true
+    random_posts: false
+    recent_comments: false
+
+  algolia:
+    vars: ["title", "summary", "path", "content"]
+    params: ["tags"]
 
   vendors:
     css:
