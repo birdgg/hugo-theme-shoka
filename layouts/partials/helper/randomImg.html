@@ -1,0 +1,5 @@
+{{ $global := .global  }}
+{{ $images := $global.Scratch.Get "randomImages" }}
+{{ $size := default "mw690" .size  }}
+{{ $randomImage := index ($images | shuffle | first 1) 0 }}
+{{ return printf "https://tva%d.sinaimg.cn/%s/%s" ($global.Scratch.Get "randomServer") $size $randomImage }}

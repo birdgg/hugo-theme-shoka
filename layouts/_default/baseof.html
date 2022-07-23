@@ -17,6 +17,7 @@
 
   <body itemscope itemtype="http://schema.org/WebPage">
     {{- .Scratch.Set "randomServer" (index (seq 1 4 | shuffle | first 1) 0) -}}
+    {{- .Scratch.Set "randomImages" .Site.Data.images -}}
     {{- partial "components/loading.html" . -}}
     <div id="container">
       <header id="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -40,21 +41,15 @@
         </div>
         <div id="imgs" class="pjax">
           {{- if .Params.cover -}}
-            {{- if (urls.Parse ( .Params.cover | safeURL)).Scheme -}}
-              <img src="{{- .Params.cover -}}">
-            {{- else -}}
-              {{- with .Resources.GetMatch .Params.cover -}}
-              <img src="{{- .RelPermalink -}}">
-              {{- end -}}
-            {{- end -}}
+            <img src="{{- partial "helper/cover.html" (dict "page" .Page) -}}">
           {{- else -}}
-          <ul>
-            {{- range seq 6 -}}
-              {{- with partial "components/randomImg.html" (dict "size" "large" "context" $) -}}
-                <li class="item" {{ printf "data-background-image='%s'" . | safeHTMLAttr }}></li>
+            <ul>
+              {{- range seq 6 -}}
+                {{- with (partial "helper/randomImg.html" (dict "size" "large" "global" $)) -}}
+                  <li class="item" {{ printf "data-background-image='%s'" . | safeHTMLAttr }}></li>
+                {{- end -}}
               {{- end -}}
-            {{- end -}}
-          </ul>
+            </ul>
           {{- end -}}
         </div>
       </header>

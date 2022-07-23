@@ -1,4 +1,0 @@
-{{ $images := site.Data.images }}
-{{ $size := default "mw690" .size  }}
-{{ $randomImage := index ($images | shuffle | first 1) 0  }}
-{{ return printf "https://tva%d.sinaimg.cn/%s/%s" (.context.Scratch.Get "randomServer") $size $randomImage }}

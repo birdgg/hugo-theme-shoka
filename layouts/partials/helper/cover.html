@@ -1,0 +1,9 @@
+{{- $page := .page -}}
+{{- $global := .global -}}
+{{- $imageUrl := "" -}}
+{{- if $page.Params.cover -}}
+{{- $imageUrl = partial "helper/image-process.html" (dict "page" $page "image" $page.Params.cover) -}}
+{{- else -}}
+  {{- $imageUrl = partial "helper/randomImg.html" (dict "global" $global) -}}
+{{- end -}}
+{{- return $imageUrl -}}

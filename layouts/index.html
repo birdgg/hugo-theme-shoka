@@ -1,31 +1,31 @@
 {{- define "main" -}}
-{{- $sticky_posts := where site.RegularPages "Params.sticky" true -}}
-<div class="index wrap">
-	{{- $paginator := .Paginate (where site.RegularPages "Type" "in" "posts") -}}
-	{{- .Scratch.Set "paginator" $paginator -}}
-	{{- $pageIndex := $paginator.PageNumber -}}
-	{{- if eq $pageIndex 1 -}}
-	  {{- if gt (len $sticky_posts) 0 -}}
-		  <h2 class="divider">{{- T "index.sticky" -}}</h2>
-		  <div class="segments sticky">
-			  {{- range $sticky_posts -}}
+	{{- $sticky_posts := where site.RegularPages "Params.sticky" true -}}
+	<div class="index wrap">
+		{{- $paginator := .Paginate (where site.RegularPages "Type" "in" "posts") -}}
+		{{- .Scratch.Set "paginator" $paginator -}}
+		{{- $pageIndex := $paginator.PageNumber -}}
+		{{- if eq $pageIndex 1 -}}
+			{{- if gt (len $sticky_posts) 0 -}}
+				<h2 class="divider">{{- T "index.sticky" -}}</h2>
+				<div class="segments sticky">
+					{{- range $sticky_posts -}}
+						{{- partial "components/segment.html" (dict "context" $ "post" .) -}}
+					{{- end -}}
+				</div>
+			{{- end -}}
+			<h2 class="divider">{{T "index.posts"}}</h2>
+		{{ end }}
+		<div class="segments posts">
+			{{- range $paginator.Pages -}}
 				{{- partial "components/segment.html" (dict "context" $ "post" .) -}}
-		       {{- end -}}
-		  </div>
-	{{- end -}}
-	<h2 class="divider">{{T "index.posts"}}</h2>
-	{{ end }}
-	<div class="segments posts">
-		{{- range $paginator.Pages -}}
-		{{- partial "components/segment.html" (dict "context" $ "post" .) -}}
-		{{- end -}}
+			{{- end -}}
+		</div>
 	</div>
-</div>
 
-{{- partial "components/pagination.html" $paginator -}}
+	{{- partial "components/pagination.html" $paginator -}}
 {{- end -}}
 
 {{- define "sidebar" -}}
-{{ $paginator := .Scratch.Get "paginator" }}
-{{- partial "components/sidebar.html" (dict "context" . "display_toc" false "paginator" $paginator) -}}
+	{{ $paginator := .Scratch.Get "paginator" }}
+	{{- partial "components/sidebar.html" (dict "context" . "display_toc" false "paginator" $paginator) -}}
 {{- end -}}

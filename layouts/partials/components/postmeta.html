@@ -1,35 +1,36 @@
 {{ $context := .context}}
 {{ $full := .full }}
+{{ $date_title := print (T "post.created") (T "symbol.colon") ($context.Date.Format (T "date.normal"))  }}
 <div class="meta">
-	<span class="item" title="{{$context.Date}}">
-		<span class="icon">
-			<i class="ic i-calendar"></i>
-		</span>
-		{{ if $full}}
-		<span class="text">{{ T "post.posted" }}</span>
-		{{ end }}
-		<time itemprop="dateCreated datePublished" {{- printf `datetime="%s" `
-			($context.Date.Format "2006-01-02T15:04:05Z07:00" ) | safeHTMLAttr -}}>
-			{{- $context.Date.Format "2006-01-02" -}}</time>
+  <span class="item" title="{{- $date_title -}}">
+	<span class="icon">
+	  <i class="ic i-calendar"></i>
 	</span>
-	<span class="item" title='{{T "symbols_count_time.count"}}'>
-		<span class="icon">
-			<i class="ic i-pen"></i>
-		</span>
-		{{ if $full}}
-		<span class="text">{{ T "symbols_count_time.count" }}</span>
-		{{ end }}
-		<span>{{- $context.WordCount -}}</span>
-		<span class="text">{{ T "symbols_count_time.word" }}</span>
+	{{ if $full}}
+	  <span class="text">{{- T "post.posted" -}}</span>
+	{{ end }}
+	<time itemprop="dateCreated datePublished" {{- printf `datetime="%s" `
+											   ($context.Date.Format "2006-01-02T15:04:05Z07:00" ) | safeHTMLAttr -}}>
+	  {{- $context.Date.Format "2006-01-02" -}}</time>
+  </span>
+  <span class="item" title='{{- T "symbols_count_time.count" -}}'>
+	<span class="icon">
+	  <i class="ic i-pen"></i>
 	</span>
-	<span class="item" title='{{T "symbols_count_time.time"}}'>
-		<span class="icon">
-			<i class="ic i-clock"></i>
-		</span>
-		{{ if $full}}
-		<span class="text">{{ T "symbols_count_time.time" }}</span>
-		{{ end }}
-		<span>{{- $context.ReadingTime -}}</span>
-		<span class="text">{{ T "symbols_count_time.time_minutes" }}</span>
+	{{ if $full}}
+	  <span class="text">{{- T "symbols_count_time.count" -}}</span>
+	{{ end }}
+	<span>{{- $context.WordCount -}}</span>
+	<span class="text">{{- T "symbols_count_time.word" -}}</span>
+  </span>
+  <span class="item" title='{{- T "symbols_count_time.time" -}}'>
+	<span class="icon">
+	  <i class="ic i-clock"></i>
 	</span>
+	{{ if $full}}
+	  <span class="text">{{- T "symbols_count_time.time" -}}</span>
+	{{ end }}
+	<span>{{- $context.ReadingTime -}}</span>
+	<span class="text">{{- T "symbols_count_time.time_minutes" -}}</span>
+  </span>
 </div>

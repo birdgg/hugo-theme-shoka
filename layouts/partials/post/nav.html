@@ -1,28 +1,32 @@
 <div class="post-nav">
-	<div class="item left">
+  <div class="item left">
 	{{- if and .Prev (eq .Prev.Type "posts") -}}
-	{{- with .Prev -}}
-		<a href="{{- .Permalink -}}" itemprop="url" rel="prev" data-background-image="{{- partial "components/randomImg.html" (dict "context" $) -}}" title="{{- .Title -}}">
-	<span class="type">{{- T "post.prev" -}}</span>
-	<span class="category"><i class="ic i-flag"></i>
-		{{- .CurrentSection.Title  -}}
-	</span>
-	<h3>{{- .Title -}}</h3>
-	</a>
+	  {{- with .Prev -}}
+		<a href="{{- .Permalink -}}" itemprop="url" rel="prev"
+		   data-background-image="{{- partial "helper/cover.html" (dict "page" . "global" $) -}}"
+		   title="{{- .Title -}}">
+		  <span class="type">{{- T "post.prev" -}}</span>
+		  <span class="category"><i class="ic i-flag"></i>
+			{{- .CurrentSection.Title  -}}
+		  </span>
+		  <h3>{{- .Title -}}</h3>
+		</a>
+	  {{- end -}}
 	{{- end -}}
-	{{- end -}}
-	</div>
-	<div class="item right">
+  </div>
+  <div class="item right">
 	{{- if and .Next (eq .Next.Type "posts") -}}
-	{{- with .Next -}}
-		<a href="{{- .Permalink -}}" itemprop="url" rel="next" data-background-image="{{- partial "components/randomImg.html" (dict "context" $) -}}" title="{{- .Title -}}">
-	<span class="type">{{- T "post.next" -}}</span>
-	<span class="category"><i class="ic i-flag"></i>
-		{{- .CurrentSection.Title  -}}
-	</span>
-	<h3>{{- .Title -}}</h3>
-	</a>
+	  {{- with .Next -}}
+		<a href="{{- .Permalink -}}" itemprop="url" rel="next"
+		   data-background-image="{{- partial "helper/cover.html" (dict "page" . "global" $) -}}"
+		   title="{{- .Title -}}">
+		  <span class="type">{{- T "post.next" -}}</span>
+		  <span class="category"><i class="ic i-flag"></i>
+			{{- .CurrentSection.Title  -}}
+		  </span>
+		  <h3>{{- .Title -}}</h3>
+		</a>
+	  {{- end -}}
 	{{- end -}}
-	{{- end -}}
-	</div>
+  </div>
 </div>

@@ -1,0 +1,12 @@
+{{- $page := .page -}}
+{{- $imageUrl := .image -}}
+{{- $processImage := "" -}}
+
+{{- if (urls.Parse ($imageUrl | safeURL)).Scheme -}}
+  {{- $processImage = $imageUrl -}}
+{{- else -}}
+  {{- $image = $page.Resource.GetMatch $imageUrl -}}
+  {{- $processImage = $image.RelPermalink -}}
+{{- end -}}
+
+{{- return $imageUrl -}}

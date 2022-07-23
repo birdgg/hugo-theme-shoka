@@ -1,6 +1,7 @@
 {{ $p1 := .p1}}
 {{ $p2 := .p2 }}
 {{ $home := .home}}
+
 {{- if $home -}}
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 {{- else -}}
@@ -19,7 +20,7 @@
 {{- else if not .p1.IsHome -}}
 <i class="ic i-angle-right"></i>
 <span{{ if eq .p1 .p2 }} class="current"{{ end }}>
- {{- .p1.Title -}}
+    {{- .p1.Title -}}
 </span>
 {{- else -}}
 <i class="ic i-home"></i>

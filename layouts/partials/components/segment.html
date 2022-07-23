@@ -1,12 +1,9 @@
 {{ $post := .post  }}
 {{ $url := .post.RelPermalink}}
 {{ $title := .post.Title | default (T "post.untitled")}}
-{{ $cover := partial "components/randomImg.html" (dict "context" .context) }}
+{{ $cover := partial "helper/cover.html" (dict "page" $post "global" .context) }}
 
 
-{{ if .post.Params.cover }}
-	{{ $cover = partial "helper/image-process.html" (dict "image" .post.Params.cover "page" $post) }}
-{{ end }}
 {{ $summary := .post.Summary | plainify | truncate 300  }}
 {{ $category := .post.CurrentSection.Title  }}
 
