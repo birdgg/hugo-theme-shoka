@@ -2,8 +2,6 @@
 #+hugo_base_dir: ../
 #+hugo_front_matter_format: yaml
 #+hugo_auto_set_lastmod: t
-#+hugo_paired_shortcodes: link-cards link-card
-#+ATTR_ORG: :width 100
 #+author: birdgg
 
 
@@ -276,6 +274,7 @@ accordion
 #+begin_export hugo
 {{< video name="test" >}}
 #+end_export
+
 * DONE sticky post :tennisclub:
 CLOSED: [2022-07-22 Fri 21:30]
 :PROPERTIES:
@@ -285,25 +284,60 @@ CLOSED: [2022-07-22 Fri 21:30]
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :sticky true
 :EXPORT_HUGO_SECTION: posts/other
 :END:
+测试一下
 这是一篇置顶文章
-* DONE test for cover post
-CLOSED: [2022-07-23 Sat 09:04]
+
+* DONE sticky post2 :tennisclub:
+CLOSED: [2022-07-23 Sat 22:57]
 :PROPERTIES:
-:EXPORT_FILE_NAME: index
-:EXPORT_HUGO_BUNDLE: cover_test
+:EXPORT_FILE_NAME: sticky-post2
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :cover lilan.jpeg
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 测试文章封面
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary another 测试置顶文章
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :sticky true
 :EXPORT_HUGO_SECTION: posts/other
 :END:
-[[file:lilan.jpeg]]
+测试一下
+这是另一篇置顶文章
 
-* DRAFT test for remote url cover post
+* DONE test for remote url cover post
+CLOSED: [2022-07-23 Sat 21:07]
 :PROPERTIES:
+:EXPORT_HUGO_BUNDLE: remote_cover
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :cover https://tva2.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :cover https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 测试文章封面使用 url
 :EXPORT_HUGO_SECTION: posts/other
 :END:
- 测试封面图片为 url 时候的情况
+
+ 封面图片为网络图片
+
+* DONE Gallery Test
+CLOSED: [2022-07-23 Sat 23:24]
+:PROPERTIES:
+:EXPORT_HUGO_BUNDLE: gallery_test
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :cover iku.png
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 相册功能测试
+:EXPORT_HUGO_SECTION: posts/other
+:END:
+Gallery 测试
+
+下面是使用了 shortcode gallery 包裹的效果
+#+begin_src markdown
+{{ </*gallery*/> }}
+![](iku.png)
+![](lilan.jpeg)
+![](https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg)
+{{ </*/gallery*/> }}
+#+end_src
+#+md: {{< gallery >}}
+[[file:iku.png]]
+[[file:lilan.jpeg]]
+[[https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg]]
+#+md: {{< /gallery >}}
+下面是单张图片测试
+[[file:iku.png]]
+[[file:lilan.jpeg]]
+[[https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg]]

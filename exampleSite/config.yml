@@ -61,10 +61,16 @@ outputFormats:
 params:
   alternate: 'Birdgg'
   subtitle: "subtitle"
-  author: "birdgg"
   description: this is description
+  statics: /
   avatar: avatar.jpg
   since: 2022
+
+  sidebar:
+    avatar: avatar.jpg
+    position: right
+
+  fancybox: true
 
   widgets:
     random_posts: true

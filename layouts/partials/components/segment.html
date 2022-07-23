@@ -2,8 +2,6 @@
 {{ $url := .post.RelPermalink}}
 {{ $title := .post.Title | default (T "post.untitled")}}
 {{ $cover := partial "helper/cover.html" (dict "page" $post "global" .context) }}
-
-
 {{ $summary := .post.Summary | plainify | truncate 300  }}
 {{ $category := .post.CurrentSection.Title  }}
 

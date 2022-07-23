@@ -13,7 +13,6 @@
 <meta itemprop="description" content="{{- $description -}}" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="{{- $title -}}" />
-<link href="{{- `index.xml` | absURL -}}" title="{{- $title -}}" type="application/rss+xml" rel="alternate" />
 <title>{{- $title -}}</title>
 {{- $css := resources.Match "css/*.css" | resources.Concat "app.css" -}}
 {{- if .Site.IsServer -}}

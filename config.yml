@@ -1,7 +1,6 @@
 params:
-  alternate: 'Birdgg'
-  subtitle: "subtitle"
-  author: ""
+  alternate: ''
+  subtitle: subtitle
   description: this is description
   avatar: avatar.jpg
   since: 2005
@@ -15,12 +14,15 @@ params:
     twitter:
       icon: ic i-twitter
       link: https://twitter.com
-
   favicon:
     apple_touch_icon: /apple-touch-icon.png
 
   darkmode: true
   auto_scroll: true
+
+  sidebar:
+    avatar: avatar.jpg
+    position: right
 
   reward:
     enable: true
@@ -33,6 +35,7 @@ params:
     name: BY-NC-SA
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
 
+  fancybox: true
   chart: false
   math: false
   mermaid: false

@@ -1,9 +1,10 @@
 {{- define "main" -}}
 	{{- $sticky_posts := where site.RegularPages "Params.sticky" true -}}
+	{{- $posts := where (where site.RegularPages "Type" "in" "posts") "Params.sticky" "!=" true -}}
+	{{- $paginator := .Paginate $posts -}}
+	{{- .Scratch.Set "paginator" $paginator -}}
+	{{- $pageIndex := $paginator.PageNumber -}}
 	<div class="index wrap">
-		{{- $paginator := .Paginate (where site.RegularPages "Type" "in" "posts") -}}
-		{{- .Scratch.Set "paginator" $paginator -}}
-		{{- $pageIndex := $paginator.PageNumber -}}
 		{{- if eq $pageIndex 1 -}}
 			{{- if gt (len $sticky_posts) 0 -}}
 				<h2 class="divider">{{- T "index.sticky" -}}</h2>
