@@ -4,6 +4,9 @@ defaultContentLanguage: zh-cn
 title: "Birdgg's blog"
 theme: "hugo-theme-shoka"
 
+author:
+  name: birdgg
+
 enableEmoji: true
 
 hasCJKLanguage: true
@@ -56,6 +59,13 @@ outputFormats:
     notAlternative: true
 
 params:
+  alternate: 'Birdgg'
+  subtitle: "subtitle"
+  author: "birdgg"
+  description: this is description
+  avatar: avatar.jpg
+  since: 2005
+
   widgets:
     random_posts: true
     recent_comments: true

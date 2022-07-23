@@ -1,81 +1,90 @@
 <!DOCTYPE html>
 <html lang="{{.Site.Language}}">
-
-<head>
+  <head>
     {{- partial "html/head/head.html" . -}}
     <title>
-        {{- block "title" .}}
-        {{- end }}
-        {{if .Site.Params.alternate}}
-            {{ print .Site.Params.alternate " = " }}
-        {{end}}
-        {{ .Site.Title }}
-        {{if .Site.Params.subtitle }}
-            {{ print " = " .Site.Params.subtitle}}
-        {{end}}
+      {{- block "title" . -}}
+      {{- end -}}
+      {{- if .Site.Params.alternate -}}
+        {{- print .Site.Params.alternate " = " -}}
+      {{- end -}}
+      {{- .Site.Title -}}
+      {{- if .Site.Params.subtitle -}}
+        {{- print " = " .Site.Params.subtitle -}}
+      {{- end -}}
     </title>
-</head>
+  </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-    {{ .Scratch.Set "randomServer" (index (seq 1 4 | shuffle | first 1) 0) }}
+  <body itemscope itemtype="http://schema.org/WebPage">
+    {{- .Scratch.Set "randomServer" (index (seq 1 4 | shuffle | first 1) 0) -}}
     {{- partial "components/loading.html" . -}}
     <div id="container">
-        <header id="header" itemscope itemtype="http://schema.org/WPHeader">
-            <div class="inner">
-                <div id="brand">
-                    <div class="pjax">
-                        {{- block "header" . }}
-                        <a href="/" class="logo" rel="start">
-                            {{ if .Site.Params.alternate }}
-                            <p class="artboard">{{ .Site.Params.alternate }}</p>
-                            {{ end }}
-                            <h1 itemprop="name headline" class="title">{{ .Site.Title }}</h1>
-                        </a>
-                        {{ if .Site.Params.subtitle }}
-                        <p class="meta" itemprop="description"> {{ .Site.Params.subtitle }} </p>
-                        {{ end }}
-                        {{- end }}
-                    </div>
-                </div>
-                {{- partial "components/header.html" . -}}
+      <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              {{- block "header" . -}}
+                <a href="/" class="logo" rel="start">
+                  {{- if .Site.Params.alternate -}}
+                    <p class="artboard">{{- .Site.Params.alternate -}}</p>
+                  {{- end -}}
+                  <h1 itemprop="name headline" class="title">{{- .Site.Title -}}</h1>
+                </a>
+                {{- if .Site.Params.subtitle -}}
+                  <p class="meta" itemprop="description">{{- .Site.Params.subtitle -}}</p>
+                {{- end -}}
+              {{- end -}}
             </div>
-            <div id="imgs" class="pjax">
-                <ul>
-                    {{- range seq 6 -}}
-                        {{ with partial "components/randomImg.html" (dict "size" "large" "context" $) }}
-                        <li class="item" {{ printf "data-background-image='%s'" . | safeHTMLAttr }}></li>
-                        {{- end  -}}
-                    {{- end  -}}
-                </ul>
-            </div>
-        </header>
-        {{- partial "components/waves.html" . -}}
+          </div>
+          {{- partial "components/header.html" . -}}
+        </div>
+        <div id="imgs" class="pjax">
+          {{- if .Params.cover -}}
+            {{- if (urls.Parse ( .Params.cover | safeURL)).Scheme -}}
+              <img src="{{- .Params.cover -}}">
+            {{- else -}}
+              {{- with .Resources.GetMatch .Params.cover -}}
+              <img src="{{- .RelPermalink -}}">
+              {{- end -}}
+            {{- end -}}
+          {{- else -}}
+          <ul>
+            {{- range seq 6 -}}
+              {{- with partial "components/randomImg.html" (dict "size" "large" "context" $) -}}
+                <li class="item" {{ printf "data-background-image='%s'" . | safeHTMLAttr }}></li>
+              {{- end -}}
+            {{- end -}}
+          </ul>
+          {{- end -}}
+        </div>
+      </header>
+      {{- partial "components/waves.html" . -}}
 
-        <main>
-            <div class="inner">
-                <div id="main" class="pjax">
-                    {{- block "main" . }}{{- end }}
-                </div>
-                <div id="sidebar">
-                    {{- block "sidebar" .}}
-                    {{- partial "components/sidebar.html" (dict "context" . "display_toc" false "paginator" nil) -}}
-                    {{- end}}
-                </div>
-                <div class="dimmer"></div>
-            </div>
-        </main>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            {{- block "main" . }}{{- end }}
+          </div>
+          <div id="sidebar">
+            {{- block "sidebar" .}}
+              {{- partial "components/sidebar.html" (dict "context" . "display_toc" false "paginator" nil) -}}
+            {{- end}}
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
 
-        <footer id="footer">
-            <div class="inner">
-                <div class="widgets">
-                    {{- partial "components/widgets.html" . -}}
-                </div>
-                {{- partial "components/footer.html" . -}}
-            </div>
-        </footer>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            {{- partial "components/widgets.html" . -}}
+          </div>
+          {{- partial "components/footer.html" . -}}
+        </div>
+      </footer>
     </div>
 
     {{- partial "html/script/scripts.html" . -}}
-</body>
+  </body>
 
 </html>

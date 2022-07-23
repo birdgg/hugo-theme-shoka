@@ -3,6 +3,7 @@
 #+hugo_front_matter_format: yaml
 #+hugo_auto_set_lastmod: t
 #+hugo_paired_shortcodes: link-cards link-card
+#+ATTR_ORG: :width 100
 #+author: birdgg
 
 
@@ -11,7 +12,7 @@ CLOSED: [2022-07-12 Tue 11:58]
 :PROPERTIES:
 :EXPORT_FILE_NAME: typo-test
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 中文排版测试
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary 中文排版测试
 :EXPORT_HUGO_SECTION: posts/other
 :END:
 ** 中文文章排版实例：论语学而篇第一
@@ -275,3 +276,34 @@ accordion
 #+begin_export hugo
 {{< video name="test" >}}
 #+end_export
+* DONE sticky post :tennisclub:
+CLOSED: [2022-07-22 Fri 21:30]
+:PROPERTIES:
+:EXPORT_FILE_NAME: sticky-post
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 测试置顶文章
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :sticky true
+:EXPORT_HUGO_SECTION: posts/other
+:END:
+这是一篇置顶文章
+* DONE test for cover post
+CLOSED: [2022-07-23 Sat 09:04]
+:PROPERTIES:
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_BUNDLE: cover_test
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :cover lilan.jpeg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 测试文章封面
+:EXPORT_HUGO_SECTION: posts/other
+:END:
+[[file:lilan.jpeg]]
+
+* DRAFT test for remote url cover post
+:PROPERTIES:
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '(start)
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :cover https://tva2.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary 测试文章封面使用 url
+:EXPORT_HUGO_SECTION: posts/other
+:END:
+ 测试封面图片为 url 时候的情况

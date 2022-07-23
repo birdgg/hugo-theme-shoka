@@ -558,7 +558,6 @@ const algoliaSearch = function (pjax) {
             : ""
           return (
             '<a href="' +
-            CONFIG.root +
             data.path +
             '">' +
             cats +

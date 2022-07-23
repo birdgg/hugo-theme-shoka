@@ -1,9 +1,18 @@
 {{- define "main" -}}
+{{- $sticky_posts := where site.RegularPages "Params.sticky" true -}}
 <div class="index wrap">
-	{{ $paginator := .Paginate (where site.RegularPages "Type" "in" "posts") }}
-	{{ .Scratch.Set "paginator" $paginator }}
-	{{ $pageIndex := $paginator.PageNumber}}
-	{{ if eq $pageIndex 1 }}
+	{{- $paginator := .Paginate (where site.RegularPages "Type" "in" "posts") -}}
+	{{- .Scratch.Set "paginator" $paginator -}}
+	{{- $pageIndex := $paginator.PageNumber -}}
+	{{- if eq $pageIndex 1 -}}
+	  {{- if gt (len $sticky_posts) 0 -}}
+		  <h2 class="divider">{{- T "index.sticky" -}}</h2>
+		  <div class="segments sticky">
+			  {{- range $sticky_posts -}}
+				{{- partial "components/segment.html" (dict "context" $ "post" .) -}}
+		       {{- end -}}
+		  </div>
+	{{- end -}}
 	<h2 class="divider">{{T "index.posts"}}</h2>
 	{{ end }}
 	<div class="segments posts">

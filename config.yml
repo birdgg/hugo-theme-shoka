@@ -1,7 +1,7 @@
 params:
   alternate: 'Birdgg'
   subtitle: "subtitle"
-  author: Birdgg
+  author: ""
   description: this is description
   avatar: avatar.jpg
   since: 2005
