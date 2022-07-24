@@ -24,13 +24,6 @@ params:
     avatar: avatar.jpg
     position: right
 
-  reward:
-    enable: true
-    account:
-      wechatpay: /wechatpay.png
-      alipay: /alipay.png
-      paypal: /paypal.png
-  
   license:
     name: BY-NC-SA
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh

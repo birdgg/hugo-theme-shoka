@@ -76,6 +76,12 @@ params:
     random_posts: true
     recent_comments: true
 
+  reward:
+    enable: true
+    account:
+      wechatpay: wechatpay.jpg
+      alipay: alipay.png
+
   algolia:
     appid: EKZ0OK6SKN
     apikey: c4880b6c9b50843998e94547ea3476f4

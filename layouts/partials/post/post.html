@@ -17,7 +17,9 @@
 		{{- if .Params.tags -}}
 		<div class="tags">
 			{{- range .Params.tags -}}
-			<a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" rel="tag"><i class="ic i-tag"></i> {{- . -}}</a>
+			<a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" rel="tag">
+				<i class="ic i-tag"></i> {{- . -}}
+			</a>
 			{{- end -}}
 		</div>
 		{{- end -}}
@@ -26,9 +28,9 @@
 	<footer>
 
 		{{- partial "post/footer.html" . -}}
-		{{/*  {{- if .Site.Params.reward.enable -}}
+		{{- if .Site.Params.reward.enable -}}
 			{{- partial "post/reward.html" . -}}
-		{{- end -}}  */}}
+		{{- end -}}
 
 		{{- partial "post/copyright.html" . -}}
 	</footer>

@@ -1,10 +1,17 @@
+{{ $builtin := (slice "wechatpay" "alipay" "paypal" "bitcoin")  }}
 <div class="reward">
   <button><i class="ic i-heartbeat"></i> {{- T "reward.donate" -}}</button>
   <p>{{- T "reward.text" -}}</p>
   <div id="qr">
-		{{ range $elem_val := .Site.Params.reward.account }}
-        <img data-src="/images{{$elem_val}}" alt="">
-        <p>123</p>
+		{{ range $elem_key, $elem_val := .Site.Params.reward.account }}
+      {{- $translation := $elem_key -}}
+      {{- if in $builtin $elem_key -}}
+        {{- $translation = T (print "reward." $elem_key) -}}
+      {{- end -}}
+      <div>
+        <img data-src="{{- print $.Site.Params.statics "images/" $elem_val -}}"
+             alt="{{- print $.Site.Author.name " " $translation -}}">
+        <p>{{- $translation -}}</p>
       </div>
 			{{end}}
   </div>
