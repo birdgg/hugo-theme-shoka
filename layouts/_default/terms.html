@@ -1,42 +1,53 @@
 {{- define "title" -}}
-{{- if eq .Data.Plural "tags" -}}
-{{- T "title.all" -}}
-{{- T "title.tag" -}}
-{{ else }}
-{{- T "title.all" -}}
-{{- T "title.category" -}}
-{{- end -}}
+  {{- if eq .Data.Plural "tags" -}}
+    {{- T "title.all" -}}
+    {{- T "title.tag" -}}
+  {{ else }}
+    {{- T "title.all" -}}
+    {{- T "title.category" -}}
+  {{- end -}}
 {{- end -}}
 
 {{- define "header" -}}
-<h1 itemprop="name headline">
-{{- if eq .Data.Plural "tags" -}}
-{{- T "title.all" -}}
-{{- T "title.tag" -}}
-{{ else }}
-{{- T "title.all" -}}
-{{- T "title.category" -}}
-{{- end -}}
+  <h1 itemprop="name headline">
+    {{- if eq .Data.Plural "tags" -}}
+      {{- T "title.all" -}}
+      {{- T "title.tag" -}}
+    {{ else }}
+      {{- T "title.all" -}}
+      {{- T "title.category" -}}
+    {{- end -}}
   </h1>
 {{- end -}}
 
 {{- define "main" -}}
-{{- if eq .Title "Tags" -}}
-{{- $totalTags := len .Site.Taxonomies.tags -}}
-<div class="collapse wrap">
-    <h2 class="item title"><a href="{{- .Site.BaseURL -}}">{{- T "menu.home" -}}</a> <small>/</small>
-   {{- T "counter.tag_cloud" (dict "Count" $totalTags)  -}}
-    </h2>
-    <div class="tag cloud">
-        {{- range sort .Site.Taxonomies.tags "Count" "desc" -}}
-        {{- $fontSize := index (seq 16 22 | shuffle) 0 -}}
-        {{- $r := index (seq 114 255 | shuffle) 0 -}}
-        {{- $g := index (seq 186 206 | shuffle) 0 -}}
-        {{- $b := index (seq 195 207 | shuffle) 0 -}}
-        {{- $color :=  delimit (slice $r $g $b) "," -}}
-        <a href="{{- .Page.RelPermalink -}}" style="font-size:{{- $fontSize -}}px;color:rgb({{- $color -}})">{{- .Page.Title -}}</a>
+  {{- if eq .Title "Tags" -}}
+    {{- $totalTags := len .Site.Taxonomies.tags -}}
+    {{ $fontUnit := "rem" }}
+    {{ $largestFontSize := 2.5 }}
+    {{ $smallestFontSize := 1.0 }}
+    {{ $max := len (index $.Site.Taxonomies.tags.ByCount 0).Pages }}
+    {{ $min := len (index $.Site.Taxonomies.tags.ByCount.Reverse 0).Pages }}
+    <div class="collapse wrap">
+      <h2 class="item title">
+        <a href="{{- .Site.BaseURL -}}">{{- T "menu.home" -}}</a>
+        <small>/ </small>
+        {{- T "counter.tag_cloud" (dict "d" $totalTags)  -}}
+      </h2>
+      <div class="tag cloud">
+        {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
+          {{ $count := len $taxonomy.Pages }}
+          {{ $weigth := div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+          {{ $fontSize := (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $weigth) ) }}
+          {{- $r := index (seq 114 255 | shuffle) 0 -}}
+          {{- $g := index (seq 186 206 | shuffle) 0 -}}
+          {{- $b := index (seq 195 207 | shuffle) 0 -}}
+          {{- $color :=  delimit (slice $r $g $b) "," -}}
+          <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" style="font-size:{{- $fontSize -}}{{- $fontUnit -}};color:rgb({{- $color -}})">
+            {{- $name -}}
+          </a>
         {{- end -}}
+      </div>
     </div>
-</div>
-{{- end -}}
+  {{- end -}}
 {{- end -}}

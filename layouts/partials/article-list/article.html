@@ -1,0 +1,17 @@
+        <article class="item normal" itemscope itemtype="http://schema.org/Article">
+          <div class="meta">
+            <time timeprop="dateCreated"
+                  {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                  content="{{- .Date.Format (T "date.normal") -}}"
+            >
+              {{- .Date.Format (T "date.d_m_y") -}}
+            </time>
+          </div>
+          <div class="title">
+            <a href="{{- .Permalink -}}" itemprop="url">
+              <span itemprop="name">
+                  {{- .Title -}}
+              </span>
+            </a>
+          </div>
+        </article>
