@@ -1,15 +1,27 @@
 <div class="meta">
-	{{- if ne (.Lastmod.Format (T "date.d_m_y")) (.Date.Format (T "date.d_m_y")) -}}
+  {{- if ne (.Lastmod.Format (T "date.d_m_y")) (.Date.Format (T "date.d_m_y")) -}}
 	<span class="item">
-		<span class="icon">
-			<i class="ic i-calendar-check"></i>
-		</span>
-		<span class="text">{{- T "post.edited" -}}</span>
-		<time
-		title="{{- T "post.publishedIn" (.Date.Format (T "date.normal")) -}}"
-		{{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
-		>{{- .Date.Format (T "date.d_m_y") -}}</time
->
+	  <span class="icon">
+		<i class="ic i-calendar-check"></i>
+	  </span>
+	  <span class="text">{{- T "post.edited" -}}</span>
+	  <time
+		title="{{- T "post.modified" -}}{{- T "symbol.colon" -}}{{- .Lastmod.Format (T "date.normal") -}}"
+			   itemprop="dateModified"
+			   {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+	  >{{- .Lastmod.Format (T "date.d_m_y") -}}</time>
 	</span>
-	{{- end -}}
+  {{- end -}}
+  {{- if .Site.Params.valine.appid -}}
+	<span id="{{- .RelPermalink -}}" class="item leancloud_visitors"
+		  data-flag-title="{{- .Title -}}"
+		  title="{{- T "post.views" -}}">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">{{- T "post.views" -}}</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">{{- T "symbols_count_time.view" -}}</span>
+	</span>
+  {{- end -}}
 </div>
