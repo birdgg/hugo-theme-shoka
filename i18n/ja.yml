@@ -10,7 +10,7 @@ title:
   all: 全て
   not_found: Σ( ° △ °|||)︴404！何も見えない
   category_in: 「％s」に分類された記事
-  tag_in: タグ "％s"の記事
+  tag_in: タグ "{{.s}}"の記事
   archive_in: 「％s」で公開された記事
 
 menu:
@@ -57,26 +57,26 @@ post:
     nocopy: "<span class=\"red\">再印刷は禁止されています。</span>"
 
 footer:
-  powered: "Powered by %s"
+  powered: "Powered by {{.s}}"
   total_views: 閲覧合計数
   total_visitors: 合計閲覧者数
 
 counter:
   index:
-    post: "%d 件の記事"
-    category:  "%d サブカテゴリ，"
+    post: "{{.d}} 件の記事"
+    category:  "{{.d}} サブカテゴリ，"
   tag_cloud:
     zero: タグなし
     one: 全 1 タグ
-    other: "全 %d タグ"
+    other: "全 {{.d}} タグ"
   categories:
     zero: カテゴリなし
     one: 全 1 カテゴリ
-    other: "全 %d カテゴリ"
+    other: "全 {{.d}} カテゴリ"
   archive_posts:
     zero: ポストなし
     one: 全 1 ポスト
-    other: "全 %d ポスト"
+    other: "全 {{.d}} ポスト"
 
 state:
   posts: ポスト
@@ -131,7 +131,7 @@ symbols_count_time:
   view: 回
 
 tips:
-  copyright: "コピーは成功しました。 <br> 再印刷については、 ％s 契約に従ってください。"
+  copyright: "コピーは成功しました。 <br> 再印刷については、 {{.s}} 契約に従ってください。"
   nocopy: "コピーに失敗しました。 <br> 再印刷は禁止されています。"
 
 quiz:
