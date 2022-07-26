@@ -14,18 +14,20 @@
      {{- if .Site.Params.widgets.recent_comments | or (ne .Params.comment false) -}}
      valine: {{- .Params.valine | default true -}},
      {{- end -}}
-	 {{- if .Site.Params.chart -}}
+	 {{- if .Params.chart -}}
 	 chart: true,
 	 {{- end -}}
-	 {{- if .Site.Params.math -}}
+	 {{- if .Params.math -}}
 	 copy_tex: true,
 	 katex: true,
 	 {{- end -}}
-	 {{- if .Site.Params.mermaid -}}
+	 {{- if .Params.mermaid -}}
 	 mermaid: true,
 	 {{- end -}}
-	 audio: {},
-     {{- if .Site.Params.fancybox -}}
+     {{- if .Params.audio -}}
+	 audio: {{- .Params.audio -}},
+     {{- end -}}
+     {{- if .Params.fancybox -}}
 	 fancybox: true,
      {{- end -}}
 	 copyright: {{- T "tips.copyright" (dict "s" $l_text) -}},
