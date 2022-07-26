@@ -1,4 +1,3 @@
 ---
-title: "Other"
-layout: "categories"
+title: "other"
 ---

@@ -17,9 +17,9 @@ taxonomies:
   tag: tags
   series: series
 
-
 permalinks:
   posts: /:slug
+  tags: /tags/:slug/
 
 pygmentsUseClasses: true
 markup:
@@ -36,17 +36,57 @@ markup:
 menu:
   main:
   - identifier: home
-    name: Home
+    name: 首页
     params: 
       icon: ic i-home
     weight: 10
     url: /
-  - identifier: archives
-    name: Archives
+  - identifier: articles
+    name: 文章
     params: 
       icon: ic i-feather
     weight: 40
+  - identifier: archives
+    name: 归档
+    params:
+      icon: ic i-list-alt
     url: /archives/
+    parent: articles
+    weight: 1
+  - identifier: categories
+    name: 分类
+    params:
+      icon: ic i-th
+    url: /categories/
+    parent: articles
+    weight: 2
+  - identifier: tags
+    name: 标签
+    params:
+      icon: ic i-tags
+    url: /tags/
+    parent: articles
+    weight: 3
+  - identifier: about
+    name: 关于
+    params:
+      icon: ic i-user
+  - identifier: links
+    name: 链环
+    params:
+      icon: ic i-magic
+  - identifier: friends
+    name: 友链
+    params:
+      icon: ic i-heart
+    url: /friends/
+    parent: links
+  - identifier: websites
+    name: 网址
+    params:
+      icon: ic i-star
+    url: /webstack/
+    parent: links
 
 outputs:
   home: ["HTML", "RSS", "JSON", "Algolia"]
@@ -59,11 +99,10 @@ outputFormats:
     notAlternative: true
 
 params:
-  alternate: 'Birdgg'
-  subtitle: "subtitle"
-  description: this is description
+  alternate: Alternate
+  subtitle: Subtitle
+  description: Description
   statics: /
-  avatar: avatar.jpg
   since: 2022
 
   sidebar:

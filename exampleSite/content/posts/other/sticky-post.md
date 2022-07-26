@@ -6,6 +6,7 @@ lastmod: 2022-07-23T22:57:07+08:00
 tags: ["tennisclub"]
 draft: false
 series: ["start"]
+categories: ["other"]
 sticky: true
 ---
 

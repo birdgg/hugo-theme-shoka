@@ -4,6 +4,7 @@ author: ["birdgg"]
 date: 2022-07-23T22:57:00+08:00
 lastmod: 2022-07-23T23:09:08+08:00
 tags: ["tennisclub"]
+categories: ["other"]
 draft: false
 series: ["start"]
 sticky: true

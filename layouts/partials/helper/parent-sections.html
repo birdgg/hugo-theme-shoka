@@ -1,0 +1,10 @@
+{{- .Scratch.Delete "parentSections" -}}
+{{- template "parentSections" . -}}
+
+{{- define "parentSections" -}}
+  {{- $.Scratch.Add "parentSections" (slice .Title) -}}
+  {{- if .Parent -}}
+    {{printf "%#v" }}
+    {{- template "parentSections" .Parent -}}
+  {{- end -}}
+{{- end -}}

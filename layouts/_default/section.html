@@ -1,0 +1,47 @@
+{{- define "title" -}}
+  {{- T "title.category" -}}{{- T "symbol.colon" -}}{{- .Title -}}
+{{- end -}}
+
+{{- define "header" -}}
+  <h1 itemprop="name headline">
+	{{- T "title.category_in" (dict "s" .Title) -}}
+  </h1>
+{{- end -}}
+
+{{- define "main" -}}
+  {{ .Scratch.Delete "pages" }}
+  {{ $sectionPage := .CurrentSection }}
+  {{ range .Site.RegularPages }}
+    {{ if (.IsDescendant $sectionPage) }}
+      {{ $.Scratch.Add "pages" (slice .) }}
+    {{ end }}
+  {{ end }}
+  <div class="collapse wrap">
+    <h2  class="item header">
+      {{ template "breadcrumbnav" (dict "p1" . "p2" . ) }}
+    </h2>
+    {{ $pages := .Scratch.Get "pages" }}
+    {{- range $pages -}}
+      {{- partial "article-list/article.html" . -}}
+    {{- end -}}
+  </div>
+{{- end -}}
+
+{{- define "sidebar" -}}
+  {{- partial "components/sidebar.html" (dict "context" . "display_toc" false "paginator" nil) -}}
+{{- end -}}
+
+
+{{ define "breadcrumbnav" }}
+{{ if .p1.Parent | and (not .p1.Parent.IsHome) }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" . )  }}
+{{ end }}
+{{ $current := eq .p1 .p2  }}
+{{ if .p1.Parent.IsHome }}
+  <a href="/categories">{{- T "title.all" -}}</a>
+{{ else if not $current }}
+  <small> / </small><a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
+{{ else }}
+  <small> / </small>{{ .p1.Title }}<small>{{- T "title.category" -}}</small>
+{{end}}
+{{ end }}

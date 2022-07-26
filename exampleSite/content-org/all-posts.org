@@ -1,11 +1,11 @@
-#+TAGS: work(w)  home(h)  tennisclub(t)  laptop(l)  pc(p)
+#+TAGS: work(w)  tennisclub(t) @other(o) @program(p) @hugo(h)
 #+hugo_base_dir: ../
 #+hugo_front_matter_format: yaml
 #+hugo_auto_set_lastmod: t
 #+author: birdgg
 
 
-* DONE 排版测试 :work:
+* DONE 排版测试 :work:@other:
 CLOSED: [2022-07-12 Tue 11:58]
 :PROPERTIES:
 :EXPORT_FILE_NAME: typo-test
@@ -87,7 +87,7 @@ func GetTitleFunc(style string) func(s string) string {
 #+end_quote
 
 
-* DONE shortcode
+* DONE shortcode :work:@other:
 CLOSED: [2022-07-16 Sat 23:43]
 :PROPERTIES:
 :EXPORT_FILE_NAME: shortcode

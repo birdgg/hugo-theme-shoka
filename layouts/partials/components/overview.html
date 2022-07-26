@@ -1,6 +1,7 @@
-{{ $author := .Site.Params.author}}
-{{ $post_len := len .Site.RegularPages }}
-{{ $cat_len := 0 }}
+{{ partial "helper/tree-sections.html" .  }}
+{{ $author := .Site.Author.name}}
+{{ $post_len := len (where .Site.RegularPages "Type" "in" "posts") }}
+{{ $cat_len := len (.Scratch.Get "sections") }}
 {{ $tag_len := len .Site.Taxonomies.tags }}
 {{ $social := .Site.Params.social }}
 

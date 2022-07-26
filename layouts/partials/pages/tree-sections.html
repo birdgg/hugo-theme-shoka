@@ -1,0 +1,50 @@
+<div class="collapse wrap">
+  {{ partial "helper/tree-sections.html" . }}
+{{ $sections := .Scratch.Get "sections" }}
+  {{ $pages := .Scratch.Get "pages" }}
+  <h2 class="item title">
+    <a href={{- .Site.BaseURL -}}>{{- T "menu.home" -}}</a>
+    <small>/ </small>
+    {{- T "counter.categories" (dict "d" (len $pages)) -}}
+</h2>
+
+  {{ range $index, $page := $pages }}
+    {{ $depth := (len (split (strings.TrimPrefix "/posts" $page) "/")) }}
+    {{ with $.Site.GetPage $page }}
+      {{ $linkTarget := . }}
+      {{ $depthNext := 0 }}
+      {{ if lt $index (sub (len $pages) 1) }}
+        {{ $pageNext := index $pages (add $index 1) }}
+        {{ $depthNext = len (split (strings.TrimPrefix "/" $pageNext) "/") }}
+      {{ end }}
+      {{ $name := index $sections $index }}
+      {{ if eq $depth 2 }}
+        <div><h2 class="item header">
+      {{ else if eq $depth 3  }}
+          <h3 class="item header">
+      {{ else }}
+            <div class="item normal"><div class="title">
+      {{ end }}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle | default $name }}</a>
+      {{ $sectionPage := .CurrentSection }}
+      {{ $.Scratch.Delete "pages" }}
+      {{ range $.Site.RegularPages }}
+        {{ if (.IsDescendant $sectionPage) }}
+          {{ $.Scratch.Add "pages" (slice .) }}
+        {{ end }}
+      {{ end }}
+      {{ $pages := $.Scratch.Get "pages" }}
+      <small>{{ printf "(%d)" (len $pages) }}</small>
+      {{ if eq $depth 2 }}
+        </h2>
+      {{ else if eq $depth 3 }}
+          </h3>
+      {{ else }}
+            </div></div>
+      {{ end }}
+      {{ if eq $depthNext 2 | or (eq $depthNext 0) }}
+        </div>
+      {{ end  }}
+    {{ end }}
+  {{ end }}
+</div>

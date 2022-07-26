@@ -2,8 +2,9 @@
 title: "排版测试"
 author: ["birdgg"]
 date: 2022-07-12T11:58:00+08:00
-lastmod: 2022-07-23T22:44:06+08:00
+lastmod: 2022-07-24T19:29:23+08:00
 tags: ["work"]
+categories: ["other"]
 draft: false
 series: ["start"]
 summary: "中文排版测试"

@@ -6,6 +6,8 @@ lastmod: 2022-07-23T23:36:47+08:00
 draft: false
 summary: "相册功能测试"
 cover: "iku.png"
+series: ["start"]
+categories: ["other"]
 ---
 
 Gallery 测试
