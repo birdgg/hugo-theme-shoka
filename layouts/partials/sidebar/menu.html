@@ -1,39 +1,42 @@
 {{ $currentPage := . }}
 {{ range .Site.Menus.main }}
-{{ if .HasChildren}}
-<li class="item dropdown">
-	{{ if eq .URL "/" }}
-	<a href="javascript:void(0);">{{ .Name }}</a>
-	{{ else }}
-	<a href="{{ .URL }}" rel="section">
-		<i class="{{ .Params.icon }}"></i>
-		{{- .Name -}}
-	</a>
-	{{ end }}
-	<ul class="submenu">
+  {{ if .HasChildren }}
+	<li class="item dropdown">
+	  {{ if eq (string .URL) ""  }}
+		<a href="javascript:void(0);">
+		  <i class="{{- .Params.icon -}}"></i>
+		  {{- .Name -}}
+		</a>
+	  {{ else }}
+		  <a href="{{- .URL -}}" rel="section">
+			<i class="{{- .Params.icon -}}"></i>
+			{{- .Name -}}
+		  </a>
+	  {{ end }}
+	  <ul class="submenu">
 		{{ range .Children }}
-		<li class="item">
-			{{ if eq .URL "/" }}
-			<a href="javascript:void(0);">
-				<i class="{{.Params.icon}}"></i>
+		  <li class="item">
+			{{ if eq (string .URL) "" }}
+			  <a href="javascript:void(0);">
+				<i class="{{- .Params.icon -}}"></i>
 				{{- .Name -}}
-			</a>
+			  </a>
 			{{ else }}
-			<a href="{{ .URL }}" rel="section">
-				<i class="{{.Params.icon}}"></i>
+			  <a href="{{- .URL -}}" rel="section">
+				<i class="{{- .Params.icon -}}"></i>
 				{{- .Name -}}
-			</a>
+			  </a>
 			{{ end }}
-		</li>
+		  </li>
 		{{ end }}
-	</ul>
-</li>
-{{else}}
-<li class="item">
-	<a href="{{ .URL }}" rel="section">
+	  </ul>
+	</li>
+  {{else}}
+	<li class="item">
+	  <a href="{{ .URL }}" rel="section">
 		<i class="{{.Params.icon}}"></i>
 		{{- .Name -}}
-	</a>
-</li>
-{{end}}
+	  </a>
+	</li>
+  {{end}}
 {{end}}

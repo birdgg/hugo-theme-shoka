@@ -71,6 +71,7 @@ menu:
     name: 关于
     params:
       icon: ic i-user
+    url: /about
   - identifier: links
     name: 链环
     params:

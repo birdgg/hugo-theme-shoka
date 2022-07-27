@@ -11,7 +11,10 @@
 
 {{- define "main" -}}
 <div class="article wrap">
+  {{- if eq .Params.breadcrumb false -}}
+  {{- else -}}
   {{- partial "components/breadcrumb.html" (dict "p1" . "p2" . "home" true) -}}
+  {{- end -}}
 	{{- partial "post/post.html" . -}}
 </div>
 {{- partial "post/nav.html" . -}}
