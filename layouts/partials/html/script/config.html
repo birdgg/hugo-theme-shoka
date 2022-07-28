@@ -10,13 +10,13 @@
     "darkmode": {{- .Site.Params.darkmode -}},
     "auto_scroll": {{- .Site.Params.auto_scroll -}},
     "js": {
-        valine: {{- .Site.Params.vendors.js.valine -}},
+        waline: {{- .Site.Params.vendors.js.waline -}},
         chart: {{- .Site.Params.vendors.js.chart -}},
         copy_tex: {{- .Site.Params.vendors.js.copy_tex -}},
         fancybox: {{- .Site.Params.vendors.js.fancybox -}},
     },
     css: {
-        valine: "css/comment.css",
+        waline: {{- .Site.Params.vendors.css.waline -}},
         katex: {{- .Site.Params.vendors.css.katex -}},
         mermaid: "css/mermaid.css",
         fancybox: {{- .Site.Params.vendors.css.fancybox -}},
@@ -32,7 +32,7 @@
         hits: {per_page: {{- .Site.Params.algolia.hits -}}},
     },
     "audio": {{- .Site.Data.audio.global -}},
-    "valine": {{- .Site.Data.valine.valine -}},
+    "waline": {{- .Site.Data.valine.waline -}},
     "quicklink": {
         "timeout": 3000,
         "priority": true,

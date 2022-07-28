@@ -128,27 +128,21 @@ params:
     indexname: dev_blog
     hits: 10
 
-  valine:
-    appId: IkYoEMgcMR92dFG5RGmdTL6o-gzGzoHsz
-    appKey: uBaPTuHf0aUkmnVYSP1SMpp7
+  waline:
+    serverURL: https://blog-comment-zeta-nine.vercel.app
+    visitor: true   # 文章访问量统计
+    pageview: true
+    lang: zh-CN     # 语言，默认 zh-CN
+    login: enable   # 登录模式状态，默认值 enable，force 可以强制登录
+    wordLimit: 0    # 评论字数限制，0 为不限制，默认值为 0
+    pageSize: 10    # 评论列表分页，数字为条数，默认值 10
+    highlight: true # 代码高亮，默认 true
+    meta: ['nick', 'mail', 'link'] # 评论者相关属性，默认 ['nick', 'mail', 'link']
+    requiredMeta: ['nick', 'mail'] #设置评论者属性必填项，默认 []（即匿名）
     placeholder: ヽ(○´∀`)ﾉ♪
-    avatar: mp
-    pageSize: 10
-    lang: zh-CN
-    visitor: true
-    NoRecordIP: false
-    serverURLs:
-    powerMode: true
-    tagMeta:
-      visitor: 新朋友
-      master: 主人
-      friend: 小伙伴
-      investor: 金主粑粑
-    tagColor:
-      master: "var(--color-orange)"
-      friend: "var(--color-aqua)"
-      investor: "var(--color-pink)"
-    tagMember:
-      master:
-      friend:
-      investor:
+    copyright: false # 是否显示页脚版权信息
+    emoji: [
+      'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji',
+      'https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs',
+      'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+    ]

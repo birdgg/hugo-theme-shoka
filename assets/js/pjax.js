@@ -57,23 +57,35 @@ const siteRefresh = function (reload) {
   vendorCss("mermaid")
   vendorJs("chart")
   vendorJs(
-    "valine",
+    "waline",
     function () {
-      var options = Object.assign({}, CONFIG.valine)
-      options = Object.assign(options, LOCAL.valine || {})
+      var options = Object.assign({}, CONFIG.waline)
+      options = Object.assign(options, LOCAL.waline || {})
       options.el = "#comments"
       options.pathname = LOCAL.path
       options.pjax = pjax
       options.lazyload = lazyload
+      options.dark = 'html[data-theme="dark"]'
 
-      new MiniValine(options)
+      Waline.init(options)
+
+      Waline.RecentComments({
+        serverURL: options.serverURL,
+        count: 10
+      }).then(({comments}) => {
+        document.getElementById('waline-recent').innerHTML = comments.map(comment =>
+          `<li class="item"><a href="${comment.url}">
+          <span class="breadcrumb">${comment.nick}</span>
+          <span>${comment.comment}</span>
+          </a></li>`)
+      })
 
       setTimeout(function () {
         positionInit(1)
         postFancybox(".v")
       }, 1000)
     },
-    window.MiniValine
+    window.Waline
   )
 
   if (!reload) {

@@ -28,7 +28,6 @@ const getScript = function (url, callback, condition) {
 }
 
 const assetUrl = function (asset, type) {
-  console.log(asset, type)
   var str = CONFIG[asset][type]
   if (
     str.indexOf("npm") > -1 ||

@@ -476,11 +476,11 @@ const loadComments = function () {
   }
 
   if (!window.IntersectionObserver) {
-    vendorCss("valine")
+    vendorCss("waline")
   } else {
     var io = new IntersectionObserver(function (entries, observer) {
       var entry = entries[0]
-      vendorCss("valine")
+      vendorCss("waline")
       if (entry.isIntersecting || entry.intersectionRatio > 0) {
         transition($("#comments"), "bounceUpIn")
         observer.disconnect()

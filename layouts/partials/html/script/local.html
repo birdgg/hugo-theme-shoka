@@ -12,7 +12,7 @@
 		 stats: "{{- T "search.stats" -}}"
 	 },
      {{- if .Site.Params.widgets.recent_comments | or (ne .Params.comment false) -}}
-     valine: {{- .Params.valine | default true -}},
+     waline: {{- .Params.waline | default true -}},
      {{- end -}}
 	 {{- if .Params.chart -}}
 	 chart: true,

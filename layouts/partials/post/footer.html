@@ -12,7 +12,6 @@
 	  >{{- .Lastmod.Format (T "date.d_m_y") -}}</time>
 	</span>
   {{- end -}}
-  {{- if .Site.Params.valine.appid -}}
 	<span id="{{- .RelPermalink -}}" class="item leancloud_visitors"
 		  data-flag-title="{{- .Title -}}"
 		  title="{{- T "post.views" -}}">
@@ -20,8 +19,7 @@
         <i class="ic i-eye"></i>
       </span>
       <span class="text">{{- T "post.views" -}}</span>
-      <span class="leancloud-visitors-count"></span>
+      <span class="leancloud-visitors-count waline-pageview-count" data-path="{{- .RelPermalink -}}"></span>
       <span class="text">{{- T "symbols_count_time.view" -}}</span>
 	</span>
-  {{- end -}}
 </div>
