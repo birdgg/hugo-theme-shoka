@@ -66,6 +66,8 @@ const siteRefresh = function (reload) {
       options.pjax = pjax
       options.lazyload = lazyload
       options.dark = 'html[data-theme="dark"]'
+      options.copyright = true
+
 
       Waline.init(options)
 

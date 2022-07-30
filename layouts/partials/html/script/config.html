@@ -1,6 +1,6 @@
 <script>
 	var CONFIG = {
-    "hostname": "http://example.com",
+    "hostname": {{- .Site.BaseURL -}},
     "root": "/",
     "statics": {{- .Site.Params.statics -}},
     "favicon": {
@@ -32,7 +32,7 @@
         hits: {per_page: {{- .Site.Params.algolia.hits -}}},
     },
     "audio": {{- .Site.Data.audio.global -}},
-    "waline": {{- .Site.Data.valine.waline -}},
+    "waline": {{- partial "html/script/waline.html" . -}},
     "quicklink": {
         "timeout": 3000,
         "priority": true,

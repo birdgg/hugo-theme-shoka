@@ -15,9 +15,9 @@
   {{- else -}}
   {{- partial "components/breadcrumb.html" (dict "p1" . "p2" . "home" true) -}}
   {{- end -}}
-	{{- partial "post/post.html" . -}}
+	{{- partial "article/post.html" . -}}
 </div>
-{{- partial "post/nav.html" . -}}
+{{- partial "article/nav.html" . -}}
 {{- partial "components/comment.html" . -}}
 {{- end -}}
 

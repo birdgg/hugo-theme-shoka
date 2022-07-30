@@ -1,0 +1,13 @@
+  {{- $config := dict -}}
+  {{- $replaceKeys := dict "serverurl" "serverURL" "requiredmeta" "requiredMeta" "wordlimit" "wordLimit" "pagesize" "pageSize" "imageuploader" "imageUploader" "texrenderer" "texRenderer" -}}
+
+  {{- range $key, $val := .Site.Params.waline -}}
+    {{- if $val -}}
+      {{- $replaceKey := index $replaceKeys $key -}}
+      {{- $k := default $key $replaceKey -}}
+
+      {{- $config = merge $config (dict $k $val) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- return $config -}}
