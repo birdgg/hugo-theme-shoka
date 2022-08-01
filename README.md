@@ -10,4 +10,13 @@
 
 A hugo theme port from [hexo-theme-shoka](https://github.com/amehime/hexo-theme-shoka)
 
+
 Still in development
+
+## Development
+
+```bash
+git clone https://github.com/birdgg/hugo-theme-shoka.git
+cd hugo-theme-shoka
+hugo server -s ./exampleSite -D --themesDir "../.." -
+```
