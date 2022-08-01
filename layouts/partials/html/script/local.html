@@ -1,7 +1,7 @@
 {{- $l_text := print "<i class='ic i-creative-commons'></i>"  .Site.Params.license.name -}}
 <script data-config type="text/javascript">
  var LOCAL = {
-	 path: {{- .RelPermalink -}},
+	 path: {{- strings.TrimPrefix "/" .RelPermalink -}},
 	 favicon: {
 		 show: "{{- T "favicon.show" -}}",
 		 hide: "{{- T "favicon.hide" -}}" 

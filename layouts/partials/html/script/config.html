@@ -1,8 +1,8 @@
 <script>
 	var CONFIG = {
-    "hostname": {{- .Site.BaseURL -}},
-    "root": "/",
-    "statics": {{- .Site.Params.statics -}},
+    "hostname": {{- strings.TrimSuffix "/" .Site.BaseURL -}},
+    "root": {{- default "/" .Site.Params.root -}},
+    "statics": {{- default "/" .Site.Params.statics -}},
     "favicon": {
         "normal": "images/favicon.ico",
         "hidden": "images/failure.ico"
@@ -15,7 +15,7 @@
         copy_tex: {{- .Site.Params.vendors.js.copy_tex -}},
         fancybox: {{- .Site.Params.vendors.js.fancybox -}},
     },
-    css: {
+    "css": {
         waline: {{- .Site.Params.vendors.css.waline -}},
         katex: {{- .Site.Params.vendors.css.katex -}},
         mermaid: "css/mermaid.css",

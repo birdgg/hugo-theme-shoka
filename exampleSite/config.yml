@@ -21,17 +21,23 @@ permalinks:
   posts: /:slug
   tags: /tags/:slug/
 
-pygmentsUseClasses: true
+# pygmentsUseClasses: false
 markup:
   highlight:
-    style: ''
+    style: 'doom-one2'
     guessSyntax: true
-    lineNumbersInTable: true
+    lineNumbersInTable: false
     lineNos: true
     codeFences: true
+    tabWidth: 2
+    noClasses: false
   goldmark:
     renderer:
       unsafe: true # enable html in markdown
+  tableOfContents:
+    endLevel: 2
+    ordered: true
+    startLevel: 2
 
 menu:
   main:
@@ -104,6 +110,8 @@ params:
   subtitle: Subtitle
   description: Description
   statics: /
+  # when your site url is like 'http://site.com/child', set root as '/child/'
+  root: /
   since: 2022
 
   sidebar:
