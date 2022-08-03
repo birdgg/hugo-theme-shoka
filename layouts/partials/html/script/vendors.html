@@ -1,4 +1,7 @@
 {{- $vendor := slice "pace" "pjax" "fetch" "anime" "algolia" "instantsearch" "lazyload" "quicklink" -}}
+{{- if .Site.Params.waline -}}
+{{ $vendor = $vendor | append "waline"  }}
+{{- end -}}
 {{- $vendorJs := .Site.Params.vendors.js -}}
 {{- $local := newScratch -}}
 {{- range $vendor -}}

@@ -50,5 +50,7 @@ hugo server -s ./exampleSite -D --themesDir "../.." -
 
 ## Acknowledgements
 [hugo-theme-luna](https://github.com/Ice-Hazymoon/hugo-theme-luna)
+
 [hugo-theme-meme](https://github.com/reuixiy/hugo-theme-meme)
+
 [hexo-theme-shoka](https://github.com/amehime/hexo-theme-shoka)

@@ -41,5 +41,8 @@
 <link rel="apple-touch-icon" href="{{- $icon -}}" />
 <link rel="icon" type="image/ico" sizes="32x32" href="{{- $icon -}}">
 
-{{- partial "html/head/site-schema.html" . -}}
+{{- if .Site.Params.waline -}}
+<link href="{{- .Site.Params.vendors.css.waline -}}" ref="stylesheet" />
+{{- end -}}
 
+{{- partial "html/head/site-schema.html" . -}}

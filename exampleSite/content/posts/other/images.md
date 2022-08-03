@@ -1,5 +1,8 @@
+---
 title: Images
-date: 2013-12-26 22:46:49
+author: ["birdgg"]
+date: 2022-07-23T21:30:00+08:00
+draft: false
 cover: https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg
 ---
 
