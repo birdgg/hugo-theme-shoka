@@ -6,39 +6,48 @@
   content: "\e652";
 }
 
-.i-volume-off:before {
+.i-volume-off:before,
+.player-info .volume.off::before {
   content: "\e61e";
 }
 
-.i-volume-on:before {
+.i-volume-on:before,
+.player-info .volume.on::before {
   content: "\e62c";
 }
 
-.i-circle-play:before {
+.i-circle-play:before,
+.player-info .play-pause::before {
   content: "\e647";
 }
 
-.i-forward:before {
+.i-forward:before,
+.player-info .forward::before {
   content: "\e648";
 }
 
-.i-backward:before {
+.i-backward:before,
+.player-info .backward::before {
   content: "\e649";
 }
 
-.i-circle-pause:before {
+.i-circle-pause:before,
+.playing .player-info .play-pause::before {
   content: "\e64a";
 }
 
-.i-loop:before {
+.i-loop:before,
+.player-info .mode.loop::before {
   content: "\e64b";
 }
 
-.i-order:before {
+.i-order:before,
+.player-info .mode.order::before {
   content: "\e64c";
 }
 
-.i-random:before {
+.i-random:before,
+.player-info .mode.random::before {
   content: "\e64d";
 }
 
@@ -146,14 +155,17 @@
   content: "\e901";
 }
 
+#copyright .license::before,
 .i-share:before {
   content: "\e61b";
 }
 
+#copyright .link::before,
 .i-link-circle:before {
   content: "\e67b";
 }
 
+#copyright .author::before,
 .i-person:before {
   content: "\e69d";
 }
@@ -214,10 +226,12 @@
   content: "\efbd";
 }
 
+#tool .player .music::before,
 .i-music:before {
   content: "\f059";
 }
 
+#tool.playing .player .play-pause::before,
 .i-pause:before {
   content: "\f06a";
 }
@@ -226,7 +240,9 @@
   content: "\ef7f";
 }
 
-.i-play:before {
+#tool .player .play-pause::before,
+.i-play:before,
+.player-info ol>li.current::before {
   content: "\f07f";
 }
 
@@ -262,7 +278,8 @@
   content: "\e6c1";
 }
 
-.i-star:before {
+.i-star:before,
+.page .body h3 .anchor::before {
   content: "\f0d4";
 }
 
@@ -282,7 +299,8 @@
   content: "\e8fc";
 }
 
-.i-angle-down:before {
+.i-angle-down:before,
+details[open] summary::before {
   content: "\ef1a";
 }
 
@@ -290,6 +308,7 @@
   content: "\e812";
 }
 
+#sidebar .tab .item.overview::before,
 .i-home:before {
   content: "\e8ed";
 }
@@ -298,7 +317,8 @@
   content: "\f03e";
 }
 
-.i-sakura:before {
+.i-sakura:before,
+.page .body h1 .anchor::before {
   content: "\e695";
 }
 
@@ -310,27 +330,34 @@
   content: "\ef19";
 }
 
-.i-arrow-circle-right:before {
+.i-arrow-circle-right:before,
+.md .note.default::before {
   content: "\ef23";
 }
 
-.i-check-circle:before {
+.i-check-circle:before,
+.md .note.success::before,
+.md ul li.task-list-item input[type="checkbox"]:checked+label::before {
   content: "\ef66";
 }
 
-.i-exclamation-circle:before {
+.i-exclamation-circle:before,
+.md .note.warning::before {
   content: "\efb5";
 }
 
-.i-info-circle:before {
+.i-info-circle:before,
+.md .note.info::before {
   content: "\f02b";
 }
 
-.i-minus-circle:before {
+.i-minus-circle:before,
+.md .note.danger::before {
   content: "\f050";
 }
 
-.i-plus-circle:before {
+.i-plus-circle:before,
+.md .note.primary::before {
   content: "\f082";
 }
 
@@ -338,14 +365,19 @@
   content: "\f299";
 }
 
-.i-check:before {
+.i-check:before,
+.md ol>li.quiz.show.true::after,
+.md ol>li.quiz>ul.options li.right::after {
   content: "\ef65";
 }
 
-.i-times:before {
+.i-times:before,
+.md ol>li.quiz.show.false::after,
+.md ol>li.quiz>ul.options li.wrong::after {
   content: "\f109";
 }
 
+#sidebar .tab .item.contents::before,
 .i-list-ol:before {
   content: "\f039";
 }
@@ -354,7 +386,8 @@
   content: "\ef1c";
 }
 
-.i-angle-right:before {
+.i-angle-right:before,
+details summary::before {
   content: "\ef1f";
 }
 
@@ -362,7 +395,8 @@
   content: "\ef25";
 }
 
-.i-arrow-up:before {
+.i-arrow-up:before,
+.tabs .show-btn::before {
   content: "\ef2a";
 }
 
@@ -394,7 +428,8 @@
   content: "\f013";
 }
 
-.i-heartbeat:before {
+.i-heartbeat:before,
+.page .body h2 .anchor::before {
   content: "\f017";
 }
 
@@ -402,6 +437,7 @@
   content: "\f0a8";
 }
 
+#sidebar .tab .item.related::before,
 .i-sitemap:before {
   content: "\f0bd";
 }
@@ -418,7 +454,8 @@
   content: "\f107";
 }
 
-.i-times-circle:before {
+.i-times-circle:before,
+.md ul li.task-list-item input[type="checkbox"]+label::before {
   content: "\f10a";
 }
 

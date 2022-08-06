@@ -44,26 +44,14 @@
       }
     }
 
-    .play-pause {
-      &::before {
-        @extend .i-play, :before;
-      }
-    }
+
 
     .music {
       display: none;
 
-      &::before {
-        @extend .i-music, :before;
-      }
     }
   }
 
-  &.playing .player {
-    .play-pause::before {
-      @extend .i-pause, :before;
-    }
-  }
 
   .player-info {
     @include shadow-box();
@@ -166,7 +154,6 @@
     }
 
     @include desktop-large {
-      right: 1rem;
       left: 1rem;
       bottom: 1rem;
     }

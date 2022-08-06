@@ -95,7 +95,6 @@
       }
 
       input[type='checkbox']+label::before {
-        @extend .i-times-circle, :before;
         @include font-family-icons;
         color: var(--grey-4);
         display: inline-block;
@@ -103,7 +102,6 @@
       }
 
       input[type='checkbox']:checked+label::before {
-        @extend .i-check-circle, :before;
         color: var(--note-text, var(--primary-color));
       }
     }

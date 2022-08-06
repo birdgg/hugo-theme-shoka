@@ -92,7 +92,9 @@
 @mixin the-flex($direction: column, $justify: center, $align: center) {
   display: flex;
 
-  @if $direction ==column {}
+  @if $direction ==column {
+    flex-direction: column;
+  }
 
   justify-content: $justify;
   align-items: $align;

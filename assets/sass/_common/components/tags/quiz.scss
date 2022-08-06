@@ -4,7 +4,6 @@
   }
 
   &::after {
-    @extend .i-check:before;
     color: var(--color-green);
     animation: fadeIn .5s;
   }
@@ -16,7 +15,6 @@
   }
 
   &::after {
-    @extend .i-times:before;
     color: var(--color-red);
     animation: fadeIn .5s;
   }

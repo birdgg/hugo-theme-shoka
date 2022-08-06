@@ -23,43 +23,6 @@
     color: var(--note-text, var(--grey-6));
   }
 
-  &.default {
-    &::before {
-      @extend .i-arrow-circle-right:before;
-    }
-  }
-
-  &.primary {
-    &::before {
-      @extend .i-plus-circle:before;
-    }
-  }
-
-  &.info {
-    &::before {
-      @extend .i-info-circle:before;
-    }
-  }
-
-  &.success {
-    &::before {
-      @extend .i-check-circle:before;
-    }
-
-  }
-
-  &.warning {
-    &::before {
-      @extend .i-exclamation-circle:before;
-    }
-  }
-
-  &.danger {
-    &::before {
-      @extend .i-minus-circle:before;
-    }
-  }
-
   &.no-icon {
     &::before {
       content: none;

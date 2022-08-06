@@ -44,18 +44,6 @@
       @include font-family-icons();
     }
 
-    &.contents::before {
-      @extend .i-list-ol, :before;
-    }
-
-    &.related::before {
-      @extend .i-sitemap, :before;
-    }
-
-    &.overview::before {
-      @extend .i-home, :before;
-    }
-
     &.active::before {
       margin-right: 0.3125rem;
     }

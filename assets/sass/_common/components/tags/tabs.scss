@@ -67,7 +67,6 @@
 
     &::before {
       @include font-family-icons;
-      @extend .i-arrow-up:before;
     }
   }
 

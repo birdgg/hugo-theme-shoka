@@ -46,33 +46,17 @@
   .play-pause {
     font-size: 130%;
 
-    &::before {
-      @extend .i-circle-play:before;
-    }
+
   }
 
-  .backward {
-    &::before {
-      @extend .i-backward:before;
-    }
-  }
 
-  .forward {
-    &::before {
-      @extend .i-forward:before;
-    }
-  }
+
+
 
   .volume {
     position: relative;
 
-    &.off::before {
-      @extend .i-volume-off:before;
-    }
 
-    &.on::before {
-      @extend .i-volume-on:before;
-    }
 
     .bar {
       position: absolute;
@@ -85,20 +69,6 @@
 
     &.off .bar {
       height: 0;
-    }
-  }
-
-  .mode {
-    &.random::before {
-      @extend .i-random:before;
-    }
-
-    &.loop::before {
-      @extend .i-loop:before;
-    }
-
-    &.order::before {
-      @extend .i-order:before;
     }
   }
 
@@ -170,7 +140,6 @@
 
         &::before {
           @include font-family-icons;
-          @extend .i-play:before;
           color: currentColor;
         }
 
@@ -353,14 +322,6 @@
       .disc {
         animation-play-state: running;
       }
-    }
-  }
-}
-
-.playing {
-  .player-info .play-pause {
-    &::before {
-      @extend .i-circle-pause:before;
     }
   }
 }

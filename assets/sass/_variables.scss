@@ -50,15 +50,15 @@ $zindex-5: 9999;
 
 
 $sidebar-width: 15;
-$sidebar-desktop: $sidebar-width + 'rem';
+$sidebar-desktop: $sidebar-width + rem;
 $content-offset: 0.75rem;
-$content-wrap: 'calc(100% - ' + ($sidebar-width + $content-offset) + 'rem' + ' )';
+$content-wrap: calc(100% - 15.75rem);
 
 $content-desktop-padding: 1.25rem;
 $content-tablet-padding: 0.625rem;
 $content-mobile-padding: 0.5rem;
 
-$content-desktop: 'calc(100% - ' + ($content-desktop-padding / 2) + 'rem' +' )';
+$content-desktop: calc(100% - 0.625rem);
 $content-desktop-large: 72.5rem;
 $content-desktop-largest: 73%;
 

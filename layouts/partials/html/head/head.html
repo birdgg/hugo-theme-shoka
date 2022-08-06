@@ -14,9 +14,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="{{- $title -}}" />
 <title>{{- $title -}}</title>
-{{/*- $css := resources.Match "css/*.css" | resources.Concat "app.css" -*/}}
 {{- $sassTemplate := resources.Get "sass/app.scss" -}}
-{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+{{ $options := (dict "transpiler" "dartsass") }}
 {{- $styles := $sassTemplate | resources.ToCSS -}}
 {{- if .Site.IsServer -}}
     <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />

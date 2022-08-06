@@ -27,30 +27,30 @@
   }
 
   .body h1 .anchor::before {
-    @extend .rotate, .i-sakura, :before;
-    @extend .rotate;
+    content: "\e695";
     font-size: $font-size-small;
     margin-top: .15rem;
     color: pink;
     left: -1.875rem;
+    animation: rotate 6s linear infinite;
 
     @include mobile-small {
       left: -0.3125rem;
     }
+
   }
 
   .body h2 .anchor::before {
-    @extend .i-heartbeat:before;
-    @extend .beat;
+    content: "\f017";
     font-size: $font-size-smaller;
     color: var(--color-pink);
+    animation: beat 1.33s ease-in-out infinite;
   }
 
   .body h3 .anchor::before {
-    @extend .i-star:before;
-    @extend .flash;
+    content: "\f0d4";
     font-size: $font-size-smallest;
     color: var(--color-orange);
+    animation: flash 6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
   }
-
 }
