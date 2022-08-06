@@ -1,0 +1,16 @@
+.operation  {
+  color: var(--grey-5);
+  cursor: pointer;
+  position: absolute;
+  padding: 0.125rem 0.375rem;
+  right: 0.125rem;
+  top: 0.45rem;
+  font-size: $font-size-smaller;
+
+  span  {
+    @include the-transition();
+    margin: 0 0.3125rem;&:hover  {
+      color: var(--grey-7);
+    }
+  }
+}

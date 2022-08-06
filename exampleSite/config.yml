@@ -148,7 +148,7 @@ params:
     meta: ['nick', 'mail', 'link'] # 评论者相关属性，默认 ['nick', 'mail', 'link']
     requiredMeta: ['nick', 'mail'] #设置评论者属性必填项，默认 []（即匿名）
     placeholder: ヽ(○´∀`)ﾉ♪
-    copyright: false # 是否显示页脚版权信息
+    copyright: true # 是否显示页脚版权信息
     emoji: [
       'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
     ]

@@ -14,12 +14,15 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="{{- $title -}}" />
 <title>{{- $title -}}</title>
-{{- $css := resources.Match "css/*.css" | resources.Concat "app.css" -}}
+{{/*- $css := resources.Match "css/*.css" | resources.Concat "app.css" -*/}}
+{{- $sassTemplate := resources.Get "sass/app.scss" -}}
+{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+{{- $styles := $sassTemplate | resources.ToCSS -}}
 {{- if .Site.IsServer -}}
-    <link rel="stylesheet" href="{{- $css.RelPermalink -}}" />
+    <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
 {{- else -}}
-    {{- $styles := $css | fingerprint -}}
-    <link rel="stylesheet" href="{{- $css.RelPermalink -}}" integrity="{{- $css.Data.Integrity -}}" />
+    {{/*- $styles :=  | fingerprint -*/}}
+    <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
 {{- end -}}
 
 {{- partial "html/head/opengraph/include.html" . -}}

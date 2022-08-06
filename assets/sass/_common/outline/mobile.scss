@@ -1,0 +1,43 @@
+@include mobile-small {
+  .post.block {
+    padding: initial !important;
+  }
+
+  .md {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding-left: 1.25rem;
+    }
+
+    .note,
+    .tabs .tab-content .tab-pane {
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0 0.3125rem;
+      }
+    }
+
+    img,
+    video {
+      margin-bottom: 0.625rem !important;
+    }
+
+    .tabs .tab-content .tab-pane {
+      padding: 0.625rem 0.625rem 0 0.625rem !important;
+    }
+  }
+
+  .post .eof {
+    margin: 2.5rem auto 1.25rem !important;
+  }
+}
