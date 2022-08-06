@@ -235,19 +235,22 @@ const postBeauty = function () {
     element.prepend(figcaption)
   })
 
-  $.each(".highlight .table-container", function (element) {
-    element.className = "code-container"
+  $.each(".chroma", function (element) {
+    element.className = "chroma code-container"
   })
 
   $.each("div.highlight", function (element) {
     var code_container = element.child(".code-container")
     var caption = element.child("figcaption")
 
-    // element.insertAdjacentHTML('beforeend', '<div class="operation"><span class="breakline-btn"><i class="ic i-align-left"></i></span><span class="copy-btn"><i class="ic i-clipboard"></i></span><span class="fullscreen-btn"><i class="ic i-expand"></i></span></div>');
     element.insertAdjacentHTML(
       "beforeend",
-      '<div class="operation"><span class="copy-btn"><i class="ic i-clipboard"></i></span><span class="fullscreen-btn"><i class="ic i-expand"></i></span></div>'
+      '<div class="operation"><span class="breakline-btn"><i class="ic i-align-left"></i></span><span class="copy-btn"><i class="ic i-clipboard"></i></span><span class="fullscreen-btn"><i class="ic i-expand"></i></span></div>'
     )
+    // element.insertAdjacentHTML(
+    //   "beforeend",
+    //   '<div class="operation"><span class="copy-btn"><i class="ic i-clipboard"></i></span><span class="fullscreen-btn"><i class="ic i-expand"></i></span></div>'
+    // )
 
     var copyBtn = element.child(".copy-btn")
     if (LOCAL.nocopy) {
@@ -275,17 +278,17 @@ const postBeauty = function () {
       })
     }
 
-    // var breakBtn = element.child('.breakline-btn');
-    // breakBtn.addEventListener('click', function (event) {
-    //   var target = event.currentTarget;
-    //   if (element.hasClass('breakline')) {
-    //     element.removeClass('breakline');
-    //     target.child('.ic').className = 'ic i-align-left';
-    //   } else {
-    //     element.addClass('breakline');
-    //     target.child('.ic').className = 'ic i-align-justify';
-    //   }
-    // });
+    var breakBtn = element.child(".breakline-btn")
+    breakBtn.addEventListener("click", function (event) {
+      var target = event.currentTarget
+      if (element.hasClass("breakline")) {
+        element.removeClass("breakline")
+        target.child(".ic").className = "ic i-align-left"
+      } else {
+        element.addClass("breakline")
+        target.child(".ic").className = "ic i-align-justify"
+      }
+    })
 
     var fullscreenBtn = element.child(".fullscreen-btn")
     var removeFullscreen = function () {

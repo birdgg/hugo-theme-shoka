@@ -3,7 +3,6 @@ const domInit = function () {
     siteNav.child(".menu").appendChild(el.cloneNode(true))
   })
 
-
   loadCat.addEventListener("click", Loader.vanish)
   menuToggle.addEventListener("click", sideBarToggleHandle)
   $(".dimmer").addEventListener("click", sideBarToggleHandle)
@@ -50,7 +49,6 @@ const pjaxReload = function () {
 }
 
 const siteRefresh = function (reload) {
-  console.log('siteRefresh: ', reload)
   LOCAL_HASH = 0
   LOCAL_URL = window.location.href
 
@@ -71,9 +69,8 @@ const siteRefresh = function (reload) {
       options.dark = 'html[data-theme="dark"]'
       options.copyright = true
 
-
       try {
-        if(document.getElementById('comments')) {
+        if (document.getElementById("comments")) {
           Waline.init(options)
         }
 
@@ -84,20 +81,21 @@ const siteRefresh = function (reload) {
         //   console.log('create instance')
         //   CONFIG.walineInstance = Waline.init(options)
         // }
-      } catch(e) {
+      } catch (e) {
         console.log(e)
       }
       Waline.RecentComments({
         serverURL: options.serverURL,
-        count: 10
-      }).then(({comments}) => {
-        document.getElementById('waline-recent').innerHTML = comments.map(comment =>
-          `<li class="item"><a href="${comment.url}">
+        count: 10,
+      }).then(({ comments }) => {
+        document.getElementById("waline-recent").innerHTML = comments.map(
+          (comment) =>
+            `<li class="item"><a href="${comment.url}">
           <span class="breadcrumb">${comment.nick}</span>
           <span>${comment.comment}</span>
-          </a></li>`)
+          </a></li>`
+        )
       })
-
 
       setTimeout(function () {
         positionInit(1)
