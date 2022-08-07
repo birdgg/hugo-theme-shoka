@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
 {{- else -}}
     {{- $styles := $styles | resources.Minify | fingerprint  -}}
-    <link rel="stylesheet" href="{{- print $public_cdn $styles.RelPermalink -}}" integrity="{{- $styles.Data.Integrity -}}" />
+    <link rel="stylesheet" href="{{- print $public_cdn $styles.RelPermalink -}}" integrity="{{- $styles.Data.Integrity -}}" crossorigin="anonymous"/>
 {{- end -}}
 
 {{- partial "html/head/opengraph/include.html" . -}}
