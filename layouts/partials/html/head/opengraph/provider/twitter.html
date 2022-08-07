@@ -1,9 +1,9 @@
-{{- $twitterSummary := .Site.Params.opengraph.twitter -}}
+{{- $twitter := .Site.Params.opengraph.twitter -}}
 {{- $title := partial "data/title" . .RelPermalink -}}
 {{- $description := partial "data/description" . .RelPermalink -}}
 
-<meta name="twitter:card" content="{{- $twitterSummary.cardType -}}" />
-{{- with $twitterSummary.site -}}
+<meta name="twitter:card" content="summary_large_image" />
+{{- with $twitter -}}
     <meta name="twitter:site" content="{{- . -}}" />
     <meta name="twitter:creator" content="{{- . -}}" />
 {{- end -}}

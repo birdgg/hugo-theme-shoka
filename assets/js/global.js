@@ -132,6 +132,7 @@ const visibilityListener = function () {
   document.addEventListener('visibilitychange', function() {
     switch(document.visibilityState) {
       case 'hidden':
+        console.log(statics + CONFIG.favicon.hidden)
         $('[rel="icon"]').attr('href', statics + CONFIG.favicon.hidden);
         document.title = LOCAL.favicon.hide;
         if(CONFIG.loader.switch)

@@ -1,1 +1,27 @@
-{{ return .Site.Title }}
+{{- $title := .Title -}}
+{{- $siteTitle := .Site.Title -}}
+{{- if .Site.Params.alternate -}}
+  {{- $siteTitle = print .Site.Params.alternate " = " $siteTitle -}}
+{{- end -}}
+{{- if .Site.Params.subtitle -}}
+  {{- $siteTitle = print $siteTitle " = " .Site.Params.subtitle -}}
+{{- end -}}
+
+
+{{- if .IsHome -}}
+  {{ $title = $siteTitle  }}
+{{- else if eq .Kind "term" -}}
+  {{- $title = printf "%s%s%s | %s" (T "title.tag") (T "symbol.colon") $title $siteTitle -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $title = printf "%s%s | %s" (T "title.all") (T "title.tag") $siteTitle -}}
+{{- else if eq .Kind "section" -}}
+  {{- if .Title -}}
+    {{- $title = printf "%s%s%s | %s" (T "title.category") (T "symbol.colon") $title $siteTitle -}}
+  {{- else -}}
+    {{- $title = printf "%s%s | %s" (T "title.all") (T "title.category") $siteTitle -}}
+  {{- end -}}
+{{- else -}}
+  {{ $title = printf "%s | %s" $title $siteTitle }}
+{{- end -}}
+
+{{ return $title }}

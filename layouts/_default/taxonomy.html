@@ -1,14 +1,3 @@
-{{- define "title" -}}
-  {{- if eq .Data.Plural "tags" -}}
-    {{- T "title.tag" -}}
-    {{- T "symbol.colon" -}}
-    {{- .Title -}} |
-  {{ else }}
-    {{- T "title.all" -}}
-    {{- T "title.category" -}}
-  {{- end -}}
-{{- end -}}
-
 {{- define "header" -}}
   <h1 itemprop="name headline">
     {{- if eq .Data.Plural "tags" -}}

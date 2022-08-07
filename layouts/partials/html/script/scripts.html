@@ -17,8 +17,8 @@
 
 {{ $js := slice $polyfill $dom $global $fireworks $page $pjax $player $sidebar $utils | resources.Concat "js/main.js" | js.Build (dict "minify" hugo.IsProduction) }}
 {{- if .Site.IsServer -}}
-<script type="text/javascript" src="{{ $js.Permalink }}"></script>
+<script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 {{- else -}}
 {{- $script := $js | fingerprint -}}
-<script type="text/javascript" src="{{- print $public_cdn $mainScript.RelPermalink -}}" defer integrity="{{- $mainScript.Data.Integrity -}}"></script>
+<script type="text/javascript" src="{{- print $public_cdn $script.RelPermalink -}}" defer integrity="{{- $script.Data.Integrity -}}"></script>
 {{- end -}}

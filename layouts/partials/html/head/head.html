@@ -14,10 +14,9 @@
 <meta name="description" content="{{- $description -}}" />
 <meta itemprop="description" content="{{- $description -}}" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<meta itemprop="name" content="{{- $title -}}" />
 <title>{{- $title -}}</title>
 {{- $sassTemplate := resources.Get "sass/app.scss" -}}
-{{- $styles := $sassTemplate | resources.ExecuteAsTemplate "main.css" | resources.ToCSS -}}
+{{- $styles := $sassTemplate | resources.ToCSS -}}
 {{- if .Site.IsServer -}}
     <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
 {{- else -}}
@@ -27,25 +26,12 @@
 
 {{- partial "html/head/opengraph/include.html" . -}}
 
-{{- $favicon_icon := resources.Get "images/icon.png" -}}
-{{- $favicon_icon = $favicon_icon.Resize "48x48 ico icon" -}}
-{{- $favicon_icon = slice $favicon_icon | resources.Concat "favicon.ico" -}}
-{{- $favicon_icon = print $favicon_icon.RelPermalink -}}
-
-
-<link rel="shortcut icon" href="{{- $favicon_icon -}}" type="image/x-icon" />
-
-{{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate (print ("/" | relLangURL) "manifest.json") . -}}
+{{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate (print ("/" | relURL) "manifest.json") . -}}
 <link rel="manifest" href="{{- $manifest.RelPermalink -}}" />
 
-{{- $icon := print (resources.Get "images/icon.png").RelPermalink -}}
-<link href="{{- $icon -}}" rel="shortcut icon" />
-<link href="{{- $icon -}}" rel="Bookmark" />
-<link rel="apple-touch-icon" href="{{- $icon -}}" />
-<link rel="icon" type="image/ico" sizes="32x32" href="{{- $icon -}}">
-
-{{- if .Site.Params.waline -}}
-<link href="{{- .Site.Params.vendors.css.waline -}}" ref="stylesheet" />
-{{- end -}}
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
 
 {{- partial "html/head/site-schema.html" . -}}
+
+{{- partial "custom/head" . -}}

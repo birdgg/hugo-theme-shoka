@@ -2,17 +2,6 @@
 <html lang="{{.Site.Language}}">
   <head>
     {{- partial "html/head/head.html" . -}}
-    <title>
-      {{- block "title" . -}}
-      {{- end -}}
-      {{- if .Site.Params.alternate -}}
-        {{- print .Site.Params.alternate " = " -}}
-      {{- end -}}
-      {{- .Site.Title -}}
-      {{- if .Site.Params.subtitle -}}
-        {{- print " = " .Site.Params.subtitle -}}
-      {{- end -}}
-    </title>
   </head>
 
   <body itemscope itemtype="http://schema.org/WebPage">

@@ -136,7 +136,10 @@ params:
     indexname: dev_blog
     hits: 10
 
-  publicCDN: https://cdn.jsdelivr.net/gh/birdgg/hugo-theme-shoka@gh-pages/
+  publicCDN: https://cdn.jsdelivr.net/gh/birdgg/hugo-theme-shoka@gh-pages
+
+  opengraph:
+    twitter: '@Bird_Eggegg'
 
   waline:
     serverURL: https://blog-comment-zeta-nine.vercel.app

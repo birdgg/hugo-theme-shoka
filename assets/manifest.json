@@ -8,7 +8,7 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/",
-    "start_url": "{{- "/" | relLangURL -}}",
+    "start_url": "{{- "/" | relURL -}}",
     "name": "{{- .Site.Title | safeHTML -}}",
     "short_name": "{{- (or .Site.Params.author .Site.Author.name) | safeHTML -}}",
     "description": "{{- .Site.Title | safeHTML -}}",

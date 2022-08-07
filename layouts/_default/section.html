@@ -1,7 +1,3 @@
-{{- define "title" -}}
-  {{- T "title.category" -}}{{- T "symbol.colon" -}}{{- .Title -}}
-{{- end -}}
-
 {{- define "header" -}}
   <h1 itemprop="name headline">
 	{{- T "title.category_in" (dict "s" .Title) -}}
