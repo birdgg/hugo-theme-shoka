@@ -1,3 +1,5 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+
 {{- $title := partial "data/title" . .RelPermalink -}}
 {{- $description := partial "data/description" . .RelPermalink -}}
 
@@ -7,7 +9,7 @@
 
 {{- if .Site.Params.keywords -}}
     <meta name="keywords"
-          content="{{- range union union .Params.tags .Site.Params.keywords -}}{{ . }},{{- end -}}" />
+          content="{{- range union .Params.tags .Site.Params.keywords -}}{{ . }},{{- end -}}" />
 {{- end -}}
 <meta name="description" content="{{- $description -}}" />
 <meta itemprop="description" content="{{- $description -}}" />
@@ -15,13 +17,12 @@
 <meta itemprop="name" content="{{- $title -}}" />
 <title>{{- $title -}}</title>
 {{- $sassTemplate := resources.Get "sass/app.scss" -}}
-{{ $options := (dict "transpiler" "dartsass") }}
-{{- $styles := $sassTemplate | resources.ToCSS -}}
+{{- $styles := $sassTemplate | resources.ExecuteAsTemplate "main.css" | resources.ToCSS -}}
 {{- if .Site.IsServer -}}
     <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
 {{- else -}}
-    {{/*- $styles :=  | fingerprint -*/}}
-    <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
+    {{- $styles := $styles | resources.Minify | fingerprint  -}}
+    <link rel="stylesheet" href="{{- print $public_cdn $styles.RelPermalink -}}" integrity="{{- $styles.Data.Integrity -}}" />
 {{- end -}}
 
 {{- partial "html/head/opengraph/include.html" . -}}

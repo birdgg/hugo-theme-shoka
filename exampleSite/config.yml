@@ -136,6 +136,8 @@ params:
     indexname: dev_blog
     hits: 10
 
+  publicCDN: https://cdn.jsdelivr.net/gh/birdgg/hugo-theme-shoka@gh-pages/
+
   waline:
     serverURL: https://blog-comment-zeta-nine.vercel.app
     visitor: true   # 文章访问量统计

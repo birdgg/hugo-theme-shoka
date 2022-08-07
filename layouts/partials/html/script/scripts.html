@@ -1,10 +1,11 @@
 {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
 
 {{- partial "html/script/local.html" . -}}
-<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+<!-- <script src="https://cdn.polyfill.io/v2/polyfill.js"></script> -->
 {{- partial "html/script/vendors.html" . -}}
 {{- partial "html/script/config.html" . -}}
 
+{{ $polyfill := resources.Get "js/polyfill.js" }}
 {{ $dom := resources.Get "js/dom.js" }}
 {{ $fireworks := resources.Get "js/fireworks.js" }}
 {{ $global := resources.Get "js/global.js" }}
@@ -14,5 +15,10 @@
 {{ $sidebar := resources.Get "js/sidebar.js" }}
 {{ $utils := resources.Get "js/utils.js" }}
 
-{{ $js := slice $dom $global $fireworks $page $pjax $player $sidebar $utils | resources.Concat "js/main.js" | js.Build (dict "minify" hugo.IsProduction) }}
-<script src="{{ $js.Permalink }}"></script>
+{{ $js := slice $polyfill $dom $global $fireworks $page $pjax $player $sidebar $utils | resources.Concat "js/main.js" | js.Build (dict "minify" hugo.IsProduction) }}
+{{- if .Site.IsServer -}}
+<script type="text/javascript" src="{{ $js.Permalink }}"></script>
+{{- else -}}
+{{- $script := $js | fingerprint -}}
+<script type="text/javascript" src="{{- print $public_cdn $mainScript.RelPermalink -}}" defer integrity="{{- $mainScript.Data.Integrity -}}"></script>
+{{- end -}}
