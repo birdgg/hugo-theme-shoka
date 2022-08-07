@@ -186,4 +186,4 @@ accordion
 
 ## media 多媒体 {#media-多媒体}
 
-{{< video name="test" >}}
+{{< video name="test 1" url="https://cdn.kastatic.org/ka-youtube-converted/O_nY1TM2RZM.mp4/O_nY1TM2RZM.mp4#t=0" >}}

@@ -1,7 +1,10 @@
-{{ $data := index $.Site.Data.video (.Get "name") }}
+{{- $url := .Get "url" -}}
+{{- $name := .Get "name" -}}
+{{- $video := dict "url" $url "name" $name -}}
+
 
 <div class="media-container">
-    <div class="player" data-type="video" {{ printf "data-src='%s'" (jsonify $data) | safeHTMLAttr }}>
+    <div class="player" data-type="video" {{ printf "data-src='%s'" (jsonify (slice $video)) | safeHTMLAttr }}>
 
     </div>
 </div>
