@@ -1,7 +1,12 @@
 <!-- Nested / Iteration / Recursion -->
 {{- $.Scratch.Delete "sections" -}}
 {{- $.Scratch.Delete "pages" -}}
+{{- if os.FileExists "content/posts" -}}
 {{- template "treeSections" (dict "$" $ "path" (printf `./content/posts`)) -}}
+{{- else -}}
+{{- $.Scratch.Add "sections" slice -}}
+{{- $.Scratch.Add "pages" slice -}}
+{{- end -}}
 
 {{- define "treeSections" -}}
   {{- $ := index . "$" -}}

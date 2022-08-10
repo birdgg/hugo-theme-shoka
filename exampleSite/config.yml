@@ -1,7 +1,7 @@
 baseURL: "https://hugo-theme-shoka.birdgg.me/"
 languageCode: "en-us"
 defaultContentLanguage: zh-cn
-title: "Birdgg's blog"
+title: title
 theme: "hugo-theme-shoka"
 
 author:
@@ -21,7 +21,6 @@ permalinks:
   posts: /:slug
   tags: /tags/:slug/
 
-# pygmentsUseClasses: false
 markup:
   highlight:
     style: 'doom-one2'
@@ -129,17 +128,25 @@ params:
     account:
       wechatpay: wechatpay.jpg
       alipay: alipay.png
+  
+  social:
+    github:
+      icon: ic i-github
+      link: https://github.com
+    twitter:
+      icon: ic i-twitter
+      link: https://twitter.com
 
   algolia:
-    appid: EKZ0OK6SKN
-    apikey: c4880b6c9b50843998e94547ea3476f4
-    indexname: dev_blog
+    appid: 
+    apikey: 
+    indexname: 
     hits: 10
 
   publicCDN: https://cdn.jsdelivr.net/gh/birdgg/hugo-theme-shoka@gh-pages
 
   opengraph:
-    twitter: '@Bird_Eggegg'
+    twitter: 
 
   waline:
     serverURL: https://blog-comment-zeta-nine.vercel.app

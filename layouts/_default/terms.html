@@ -11,8 +11,8 @@
     {{ $fontUnit := "rem" }}
     {{ $largestFontSize := 2.5 }}
     {{ $smallestFontSize := 1.0 }}
-    {{ $max := add (len (index $.Site.Taxonomies.tags.ByCount 0).Pages) 1 }}
-    {{ $min := len (index $.Site.Taxonomies.tags.ByCount.Reverse 0).Pages }}
+    {{ $max := add (len (default slice (index $.Site.Taxonomies.tags.ByCount 0).Pages)) 1 }}
+    {{ $min := len (default slice (index $.Site.Taxonomies.tags.ByCount.Reverse 0).Pages) }}
     <div class="collapse wrap">
       <h2 class="item title">
         <a href="{{- .Site.BaseURL -}}">{{- T "menu.home" -}}</a>
