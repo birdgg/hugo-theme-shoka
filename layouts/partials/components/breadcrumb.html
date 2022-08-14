@@ -16,7 +16,7 @@
 {{- else if not .p1.IsHome -}}
 {{- template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 ) -}}
 {{- end -}}
-{{- if eq .p1.Title "Categories" -}}
+{{- if eq .p1.Title "Categories" | or (eq .p1.Title "Posts") -}}
 {{- else if not .p1.IsHome -}}
 <i class="ic i-angle-right"></i>
 <span{{ if eq .p1 .p2 }} class="current"{{ end }}>

@@ -12,6 +12,11 @@ A hugo theme port from [hexo-theme-shoka](https://github.com/amehime/hexo-theme-
 
 Still in development, lots of bugs need to be fixed
 
+## Document
+please check out document [here](https://birdgg.me/hugo-theme-shoka-introduce/)
+
+
+
 ## Current Support Features
 - Random images for cover
 - Table of content
@@ -34,18 +39,6 @@ git clone https://github.com/birdgg/hugo-theme-shoka.git
 cd hugo-theme-shoka
 hugo server -s ./exampleSite -D --themesDir "../.." -
 ```
-
-## TODO
-- [ ] code hightlight style
-- [ ] custom header and footer
-- [ ] google analyse
-- [ ] LaText support
-- [ ] waline bugfix
-- [ ] Bionic Reading
-- [ ] custom font
-- [ ] style to sass with hugo pipe
-- [ ] Github page template
-- [ ] Twitter page template
 
 
 ## Acknowledgements
