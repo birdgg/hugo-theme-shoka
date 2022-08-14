@@ -3,7 +3,7 @@
 {{ $title := .post.Title | default (T "post.untitled")}}
 {{ $cover := partial "helper/cover.html" (dict "page" $post "global" .context) }}
 {{ $summary := .post.Summary | plainify | truncate 300  }}
-{{ $category := .post.CurrentSection.Title  }}
+{{ $tags := .post.Params.tags  }}
 
 <article class="item">
 	<div class="cover">
@@ -21,12 +21,14 @@
 			{{- $summary -}}
 		</div>
 		<div class="meta footer">
+			{{- range $tags -}}
 			<span>
-			<a href="/categories/{{- $category | lower -}}" itemprops="url" title={{- $category -}}>
-				<i class="ic i-flag"></i>
-				{{- $category -}}
+			<a href="/tags/{{- . | urlize -}}" itemprops="url" title={{- . -}}>
+				<i class="ic i-tag"></i>
+				{{- . -}}
 			</a>
 			</span>
+			{{- end -}}
 		</div>
 		<a href="{{- $url -}}" itemprop="url" title="{{- $title -}}" class="btn">more...</a>
 	</div>

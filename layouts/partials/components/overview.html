@@ -6,7 +6,7 @@
 {{ $social := .Site.Params.social }}
 
 <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-	<img class="image" itemprop="image" alt="{{ $author }}" data-src="{{ .Site.BaseURL }}images/avatar.jpg">
+	<img class="image" itemprop="image" alt="{{ $author }}" data-src="{{- .Site.BaseURL -}}images/{{- .Site.Params.sidebar.avatar -}}">
 	<p class="name" itemprop="name">{{ $author }}</p>
 	<div class="description" itemprop="description">
 		{{- .Site.Params.description -}}
@@ -16,22 +16,22 @@
 <nav class="state">
 	<div class="item posts">
 		<a href="/archives/">
-			<span class="count">{{ $post_len }}</span>
-			<span class="name">{{T "state.posts"}}</span>
+			<span class="count">{{- $post_len -}}</span>
+			<span class="name">{{- T "state.posts" -}}</span>
 		</a>
 	</div>
 
 	<div class="item categories">
 		<a href="/categories/">
-			<span class="count">{{ $cat_len }}</span>
-			<span class="name">{{T "state.categories" }}</span>
+			<span class="count">{{- $cat_len -}}</span>
+			<span class="name">{{- T "state.categories" -}}</span>
 		</a>
 	</div>
 
 	<div class="item tags">
 		<a href="/tags/">
-			<span class="count">{{$tag_len}}</span>
-			<span class="name">{{T "state.tags"}}</span>
+			<span class="count">{{- $tag_len -}}</span>
+			<span class="name">{{- T "state.tags" -}}</span>
 		</a>
 	</div>
 </nav>
