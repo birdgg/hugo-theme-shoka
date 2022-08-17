@@ -1,6 +1,6 @@
 {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
 
-{{- if .Site.GoogleAnalytics -}}{{- template "_internal/google_analytics_async.html" . -}}{{- end -}}
+{{- if .Site.GoogleAnalytics -}}{{- template "_internal/google_analytics.html" . -}}{{- end -}}
 
 {{- partial "html/script/local.html" . -}}
 <!-- <script src="https://cdn.polyfill.io/v2/polyfill.js"></script> -->
