@@ -1,3 +1,9 @@
+{{ $data := newScratch }}
+{{- if .Site.Params.audio -}}
+    {{- range .Site.Params.audio -}}
+        {{ $data.Add "audio" (slice (dict "title" .title "list" .list)) }}
+    {{- end -}}
+{{- end -}}
 <script>
 	var CONFIG = {
     "hostname": {{- strings.TrimSuffix "/" .Site.BaseURL -}},
@@ -31,7 +37,9 @@
         indexName: {{- .Site.Params.algolia.indexname -}},
         hits: {per_page: {{- .Site.Params.algolia.hits -}}},
     },
-    "audio": {{- .Site.Data.audio.global -}},
+    {{- if .Site.Params.audio -}}
+    "audio": {{- $data.Get "audio" -}},
+    {{- end -}}
     "waline": {{- partial "html/script/waline.html" . -}},
     "quicklink": {
         "timeout": 3000,

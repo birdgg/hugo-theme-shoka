@@ -1,6 +1,6 @@
-{{ $p1 := .p1}}
-{{ $p2 := .p2 }}
-{{ $home := .home}}
+{{ $p1 := .p1.Parent }}
+{{ $p2 := .p2.Parent }}
+{{ $home := .home }}
 
 {{- if $home -}}
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -19,11 +19,15 @@
 {{- if eq .p1.Title "Categories" | or (eq .p1.Title "Posts") -}}
 {{- else if not .p1.IsHome -}}
 <i class="ic i-angle-right"></i>
-<span{{ if eq .p1 .p2 }} class="current"{{ end }}>
-    {{- .p1.Title -}}
+<span{{ if eq .p1 .p2 }} class="current"{{ end }} itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+<a href="{{.p1.Permalink}}">
+<span>
+{{- .p1.Title -}}
+</span>
+</a>
 </span>
 {{- else -}}
 <i class="ic i-home"></i>
-<span>{{- T "menu.home" -}}</span>
+<span><a href="{{.p1.RelPermalink}}">{{- T "menu.home" -}}</a></span>
 {{- end -}}
 {{- end -}}

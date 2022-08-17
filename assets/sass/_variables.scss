@@ -1,4 +1,4 @@
-$font-family-chinese: -apple-system "PingFang SC""Microsoft YaHei";
+$font-family-chinese: -apple-system 'PingFang SC' 'Microsoft YaHei';
 
 $font-family-base: $font-family-chinese sans-serif;
 
@@ -22,18 +22,11 @@ $font-size-large: 1.125em;
 $font-size-larger: 1.25em;
 $font-size-largest: 1.5em;
 
-
-
 $font-size-headings-step: 0.125em;
 $font-size-headings-base: 1.625em;
 
-
-
 $line-height-base: 2;
 $line-height-code-block: 1.6;
-
-
-
 
 $zindex-0: -1;
 $zindex-1: 1;
@@ -41,13 +34,6 @@ $zindex-2: 9;
 $zindex-3: 99;
 $zindex-4: 999;
 $zindex-5: 9999;
-
-
-
-
-
-
-
 
 $sidebar-width: 15;
 $sidebar-desktop: $sidebar-width + rem;
@@ -61,9 +47,6 @@ $content-mobile-padding: 0.5rem;
 $content-desktop: calc(100% - 0.625rem);
 $content-desktop-large: 72.5rem;
 $content-desktop-largest: 73%;
-
-
-
 
 $font-size-title: 2em;
 $font-size-subtitle: $font-size-small;
