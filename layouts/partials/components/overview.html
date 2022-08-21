@@ -4,9 +4,10 @@
 {{ $cat_len := len (default slice (.Scratch.Get "sections")) }}
 {{ $tag_len := len .Site.Taxonomies.tags }}
 {{ $social := .Site.Params.social }}
+{{ $avatar := partial "helper/avatar.html" .  }}
 
 <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-	<img class="image" itemprop="image" alt="{{ $author }}" data-src="{{- .Site.BaseURL -}}images/{{- .Site.Params.sidebar.avatar -}}">
+	<img class="image" itemprop="image" alt="{{ $author }}" data-src="{{- $avatar -}}">
 	<p class="name" itemprop="name">{{ $author }}</p>
 	<div class="description" itemprop="description">
 		{{- .Site.Params.description -}}

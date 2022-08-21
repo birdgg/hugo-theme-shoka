@@ -1,0 +1,3 @@
+{{- $_avatar := .Site.Params.sidebar.avatar -}}
+{{- $avatar :=  cond (hasPrefix $_avatar "http") $_avatar (print .Site.BaseURL "images/" $_avatar) -}}
+{{- return  $avatar -}}

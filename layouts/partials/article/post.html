@@ -1,8 +1,9 @@
+{{- $avatar := partial "helper/avatar.html" . -}}
 <article itemscope itemtype="http://schema.org/Article" class="post block" lang="{{- .Language -}}">
 	<link itemprop="mainEntityOfPage" href="{{- .Permalink -}}">
 
 	<span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-		<meta itemprop="image" content="{{- print .Site.Params.statics "/images/" .Site.Params.sidebar.avatar -}}">
+		<meta itemprop="image" content="{{- $avatar -}}">
 		<meta itemprop="name" content="{{- .Site.Author.name -}}">
 		<meta itemprop="description" content="{{- print .Site.Params.subtitle ", " .Site.Params.description -}}">
 	</span>
