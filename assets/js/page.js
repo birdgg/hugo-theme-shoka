@@ -495,7 +495,7 @@ const loadComments = function () {
 }
 
 const algoliaSearch = function (pjax) {
-  if (CONFIG.search === null) return
+  if (CONFIG.search.appID === null) return
 
   if (!siteSearch) {
     siteSearch = BODY.createChild("div", {
