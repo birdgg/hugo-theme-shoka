@@ -12,12 +12,14 @@ A hugo theme port from [hexo-theme-shoka](https://github.com/amehime/hexo-theme-
 
 Still in development, lots of bugs need to be fixed
 
+_Notice_ I am migrating this blog theme to Astro.
+
 ## Document
+
 please check out document [here](https://birdgg.me/hugo-theme-shoka-introduce/)
 
-
-
 ## Current Support Features
+
 - Random images for cover
 - Table of content
 - Series articles
@@ -40,8 +42,8 @@ cd hugo-theme-shoka
 hugo server -s ./exampleSite -D --themesDir "../.." -
 ```
 
-
 ## Acknowledgements
+
 [hugo-theme-luna](https://github.com/Ice-Hazymoon/hugo-theme-luna)
 
 [hugo-theme-meme](https://github.com/reuixiy/hugo-theme-meme)
